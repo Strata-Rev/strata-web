@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cómo reducir tu dependencia de Booking.com · Strata</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Lora:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet">
+<script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--gold:#C9962A;--gold2:#E8B84B;--ink:#0C0B09;--ink2:#2E2C28;--ink3:#6B6860;--cream:#FAF7F0;--syne:'Syne',sans-serif;--lora:'Lora',Georgia,serif}
+html{scroll-behavior:smooth}
+body{background:var(--ink);color:#fff;font-family:var(--syne);overflow-x:hidden}
+nav{position:fixed;top:0;left:0;right:0;z-index:300;display:flex;justify-content:space-between;align-items:center;padding:1rem 5%;background:rgba(12,11,9,.96);border-bottom:1px solid rgba(201,150,42,.15);backdrop-filter:blur(12px)}
+.nav-logo img{height:47px;width:auto;display:block}
+.nav-links{display:flex;gap:2rem;list-style:none}
+.nav-links a{font-size:.75rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.55);text-decoration:none;transition:color .2s}
+.nav-links a:hover{color:var(--gold2)}
+.nav-cta{font-size:.75rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;background:transparent;color:var(--gold2);border:1.5px solid var(--gold2);padding:.6rem 1.5rem;text-decoration:none;transition:all .2s;white-space:nowrap}
+.nav-cta:hover{background:var(--gold2);color:var(--ink)}
+.nav-hamburger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:4px;z-index:310}
+.nav-hamburger span{display:block;width:24px;height:2px;background:rgba(255,255,255,.75);transition:all .25s}
+.nav-hamburger.open span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
+.nav-hamburger.open span:nth-child(2){opacity:0}
+.nav-hamburger.open span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
+.mobile-menu{display:none;position:fixed;inset:0;z-index:250;background:rgba(12,11,9,.99);flex-direction:column;align-items:center;justify-content:center;gap:2.2rem}
+.mobile-menu.open{display:flex}
+.mobile-menu a{font-size:1.35rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:rgba(255,255,255,.7);text-decoration:none}
+.mobile-menu .mob-cta{background:var(--gold);color:var(--ink);padding:.95rem 3rem;font-weight:700;font-size:.95rem}
+.article-hero{padding:9rem 5% 4rem;border-bottom:1px solid rgba(255,255,255,.05)}
+.article-back{display:inline-flex;align-items:center;gap:.5rem;font-size:.75rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.35);text-decoration:none;margin-bottom:2.5rem;transition:color .2s}
+.article-back:hover{color:var(--gold2)}
+.article-cat{font-size:.7rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--gold2);margin-bottom:1.2rem;display:block}
+.article-title{font-family:var(--syne);font-size:clamp(2rem,4vw,3.8rem);font-weight:800;line-height:1.08;letter-spacing:-.02em;color:#fff;margin-bottom:1.5rem}
+.article-meta{display:flex;gap:2rem;align-items:center;flex-wrap:wrap}
+.article-date,.article-time{font-size:.75rem;color:rgba(255,255,255,.3);letter-spacing:.06em}
+.article-cover{width:100%;max-height:560px;object-fit:cover;display:block}
+.article-body{max-width:720px;margin:0 auto;padding:5rem 5% 6rem}
+.article-body h2{font-family:var(--syne);font-size:1.7rem;font-weight:800;color:#fff;margin:3rem 0 1rem;letter-spacing:-.02em}
+.article-body h3{font-family:var(--syne);font-size:1.2rem;font-weight:700;color:var(--gold2);margin:2rem 0 .8rem}
+.article-body p{font-family:var(--lora);font-size:1.1rem;color:rgba(255,255,255,.7);line-height:1.9;margin-bottom:1.5rem}
+.article-body strong{color:#fff;font-family:var(--syne);font-size:.95em;font-weight:700}
+.article-body ul,.article-body ol{font-family:var(--lora);font-size:1rem;color:rgba(255,255,255,.65);line-height:1.85;margin:1rem 0 1.5rem 1.8rem}
+.article-body li{margin-bottom:.5rem}
+.article-body hr{border:none;border-top:1px solid rgba(255,255,255,.08);margin:3rem 0}
+.article-body a{color:var(--gold2);text-decoration:none;border-bottom:1px solid rgba(201,150,42,.3);transition:border-color .2s}
+.article-body a:hover{border-color:var(--gold2)}
+.highlight-box{background:rgba(201,150,42,.08);border-left:3px solid var(--gold);padding:1.8rem 2rem;margin:2rem 0}
+.highlight-box p{margin-bottom:0;font-size:1rem}
+.article-cta{max-width:720px;margin:0 auto;padding:0 5% 6rem}
+.cta-box{background:rgba(201,150,42,.08);border:1px solid rgba(201,150,42,.2);padding:3rem;text-align:center}
+.cta-box h3{font-family:var(--syne);font-size:1.4rem;font-weight:800;color:#fff;margin-bottom:.8rem;letter-spacing:-.01em}
+.cta-box p{font-family:var(--lora);font-style:italic;font-size:1rem;color:rgba(255,255,255,.5);margin-bottom:1.8rem}
+.cta-box a{display:inline-block;font-size:.82rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;background:var(--gold);color:var(--ink);padding:1rem 2.8rem;text-decoration:none;transition:background .2s}
+.cta-box a:hover{background:var(--gold2)}
+.related{max-width:720px;margin:0 auto;padding:0 5% 8rem}
+.related h3{font-family:var(--syne);font-size:1.1rem;font-weight:700;color:rgba(255,255,255,.35);letter-spacing:.1em;text-transform:uppercase;margin-bottom:2rem;padding-bottom:1rem;border-bottom:1px solid rgba(255,255,255,.06)}
+.related-grid{display:grid;grid-template-columns:1fr 1fr;gap:2px}
+.related-card{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.05);padding:2rem;text-decoration:none;transition:border-color .25s;display:block}
+.related-card:hover{border-color:rgba(201,150,42,.3)}
+.related-tag{font-size:.62rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--gold2);margin-bottom:.7rem;display:block}
+.related-title{font-family:var(--syne);font-size:.95rem;font-weight:700;color:#fff;line-height:1.3;letter-spacing:-.01em}
+footer{padding:1.6rem 5%;background:rgba(0,0,0,.4);border-top:1px solid rgba(201,150,42,.08);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem}
+.footer-copy{font-size:.73rem;color:rgba(255,255,255,.22)}
+.footer-links{display:flex;gap:1.8rem;list-style:none}
+.footer-links a{font-size:.73rem;color:rgba(255,255,255,.22);text-decoration:none;transition:color .2s}
+.footer-links a:hover{color:var(--gold2)}
+@media(max-width:768px){
+  .nav-links,.nav-cta{display:none}
+  .nav-hamburger{display:flex}
+  .article-hero{padding:7rem 4% 3rem}
+  .article-body,.article-cta,.related{padding-left:4%;padding-right:4%}
+  .related-grid{grid-template-columns:1fr}
+  footer{flex-direction:column;text-align:center}
+}
+</style>
+</head>
+<body>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="index.html" onclick="closeMobile()">Inicio</a>
+  <a href="index.html#roi" onclick="closeMobile()">Calculadora ROI</a>
+  <a href="index.html#servicios" onclick="closeMobile()">Servicios</a>
+  <a href="blog.html" onclick="closeMobile()">Blog</a>
+  <a href="index.html#contacto" class="mob-cta" onclick="closeMobile()">Calcular mi ROI</a>
+</div>
+<nav>
+  <a href="index.html" class="nav-logo"><img src="logo-dark.png" alt="Strata Revenue Intelligence"></a>
+  <ul class="nav-links">
+    <li><a href="index.html#tecnologia">Tecnología IA</a></li>
+    <li><a href="index.html#roi">Calculadora ROI</a></li>
+    <li><a href="index.html#servicios">Servicios</a></li>
+    <li><a href="blog.html">Blog</a></li>
+    <li><a href="index.html#proceso">Proceso</a></li>
+  </ul>
+  <a href="index.html#contacto" class="nav-cta">Calcular mi ROI</a>
+  <button class="nav-hamburger" id="hamburger"><span></span><span></span><span></span></button>
+</nav>
+
+<div class="article-hero">
+  <a href="blog.html" class="article-back">← Volver al blog</a>
+  <span class="article-cat">Distribución · OTAs</span>
+  <h1 class="article-title">Cómo reducir tu dependencia de Booking.com<br>sin perder ocupación</h1>
+  <div class="article-meta">
+    <span class="article-date">28 Feb 2026</span>
+    <span class="article-time">8 min de lectura</span>
+  </div>
+</div>
+
+<img class="article-cover" src="https://images.unsplash.com/photo-1566073771259-6a8506099945?w=1600&q=90&auto=format&fit=crop" alt="Hotel OTA distribución">
+
+<div class="article-body">
+  <p>Si más del 60% de tus reservas vienen de Booking.com o Expedia, tienes un riesgo de negocio que probablemente no estás midiendo. No es solo el costo de la comisión — es que estás construyendo tu negocio sobre terreno que no controlas.</p>
+
+  <h2>¿Cuánto te está costando realmente?</h2>
+  <p>Hagamos el cálculo simple:</p>
+  <div class="highlight-box">
+    <p>Hotel de 20 habitaciones · ADR: $120 USD · Ocupación: 65% · 70% de reservas vía OTA al 18% de comisión<br><br><strong>Costo anual de comisiones: $40,405 USD</strong></p>
+  </div>
+  <p>Ese dinero sale de tu bolsillo cada año. La pregunta es: ¿cuánto de eso puedes recuperar?</p>
+
+  <h2>La estrategia en 4 pasos</h2>
+
+  <h3>Paso 1: Activa tu motor de reservas directo</h3>
+  <p>Si no tienes uno, es la inversión más importante que puedes hacer. Herramientas como <strong>Cloudbeds</strong>, <strong>Little Hotelier</strong> o <strong>SiteMinder</strong> tienen motores de reservas integrados desde $100-200 USD/mes.</p>
+
+  <h3>Paso 2: Ofrece una razón real para reservar directo</h3>
+  <p>"Mejor precio garantizado" no es suficiente. Lo que funciona:</p>
+  <ul>
+    <li>Desayuno incluido solo en reserva directa</li>
+    <li>Check-in anticipado o check-out tardío</li>
+    <li>Upgrade sujeto a disponibilidad</li>
+    <li>Cancelación flexible más generosa que en OTAs</li>
+  </ul>
+
+  <h3>Paso 3: Captura emails y trabaja tu base</h3>
+  <p>Cada huésped que se hospeda en tu hotel es un prospecto de reserva directa para la próxima visita. Un email bien diseñado 3 meses después de su visita, con una oferta exclusiva para reservar directo, convierte entre <strong>8-15% de los contactos</strong>.</p>
+
+  <h3>Paso 4: Gestiona el rate parity con inteligencia</h3>
+  <p>Las OTAs tienen cláusulas de paridad de tarifas, pero hay espacio para diferenciarte en <strong>valor</strong>, no solo en precio. Paquetes con experiencias, beneficios adicionales y comunicación de marca son mecanismos legítimos para hacer más atractiva la reserva directa.</p>
+
+  <h2>Resultados esperados</h2>
+  <p>Con una estrategia de reservas directas activa durante 12 meses, los hoteles que trabajo típicamente pasan de 70% OTA a 45-50% OTA, y de 10% directo a 30-35% directo.</p>
+  <p>Eso representa entre <strong>$15,000 y $35,000 USD de comisiones recuperadas al año</strong>, dependiendo del tamaño de la propiedad.</p>
+  <hr>
+  <p>¿Quieres un diagnóstico de tu mix de canales actual? <a href="index.html#contacto">Escríbeme</a> y en una llamada de 30 minutos te digo exactamente dónde están las oportunidades.</p>
+</div>
+
+<div class="article-cta">
+  <div class="cta-box">
+    <h3>Diagnostica tu mix de canales</h3>
+    <p>30 minutos. Sin costo. Sin compromiso.</p>
+    <a href="index.html#contacto">Agendar diagnóstico gratuito</a>
+  </div>
+</div>
+
+<div class="related">
+  <h3>Más artículos</h3>
+  <div class="related-grid">
+    <a href="article-revpar-hoteles-boutique.html" class="related-card">
+      <span class="related-tag">Pricing · Revenue</span>
+      <p class="related-title">Por qué el 90% de los hoteles boutique dejan RevPAR sobre la mesa</p>
+    </a>
+    <a href="article-ia-revenue-management.html" class="related-card">
+      <span class="related-tag">IA · Data</span>
+      <p class="related-title">IA en revenue management: qué funciona hoy para hoteles independientes</p>
+    </a>
+  </div>
+</div>
+
+<footer>
+  <span class="footer-copy">© 2026 Strata Revenue Intelligence</span>
+  <ul class="footer-links">
+    <li><a href="#">LinkedIn</a></li><li><a href="#">WhatsApp</a></li><li><a href="#">Calendly</a></li>
+  </ul>
+</footer>
+<script>
+const hamburger=document.getElementById('hamburger');
+const mobileMenu=document.getElementById('mobileMenu');
+hamburger.addEventListener('click',()=>{hamburger.classList.toggle('open');mobileMenu.classList.toggle('open');document.body.style.overflow=mobileMenu.classList.contains('open')?'hidden':''});
+function closeMobile(){hamburger.classList.remove('open');mobileMenu.classList.remove('open');document.body.style.overflow=''}
+</script>
+</body>
+</html>

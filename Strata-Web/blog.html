@@ -190,9 +190,9 @@ function renderPosts(filter){
   let h='<div class="blog-grid">';
   list.forEach((a,i)=>{
     if(i===0){
-      h+=`<div class="blog-card-featured reveal" data-cat="${a.category}"><div class="feat-img"><img src="${a.cover_image}" alt="${a.title}" loading="lazy"></div><div class="feat-body"><span class="feat-tag">${a.category}</span><h2 class="feat-title">${a.title}</h2><p class="feat-excerpt">${a.excerpt}</p><div class="feat-meta"><span class="feat-date">${a.dateFormatted} · ${a.read_time}</span><a href="#" class="feat-read">Leer artículo →</a></div></div></div>`;
+      h+=`<div class="blog-card-featured reveal" data-cat="${a.category}"><div class="feat-img"><img src="${a.cover_image}" alt="${a.title}" loading="lazy"></div><div class="feat-body"><span class="feat-tag">${a.category}</span><h2 class="feat-title">${a.title}</h2><p class="feat-excerpt">${a.excerpt}</p><div class="feat-meta"><span class="feat-date">${a.dateFormatted} · ${a.read_time}</span><a class="feat-read" href="article-${a.slug}.html">Leer artículo →</a></div></div></div>`;
     } else {
-      h+=`<div class="blog-card reveal" data-cat="${a.category}"><img class="blog-card-img" src="${a.cover_image}" alt="${a.title}" loading="lazy"><div class="blog-card-body"><span class="blog-card-tag">${a.category}</span><h3 class="blog-card-title">${a.title}</h3><p class="blog-card-excerpt">${a.excerpt}</p><div class="blog-card-meta"><span class="blog-card-date">${a.dateFormatted} · ${a.read_time}</span><a href="#" class="blog-card-read">Leer →</a></div></div></div>`;
+      h+=`<div class="blog-card reveal" data-cat="${a.category}"><img class="blog-card-img" src="${a.cover_image}" alt="${a.title}" loading="lazy"><div class="blog-card-body"><span class="blog-card-tag">${a.category}</span><h3 class="blog-card-title">${a.title}</h3><p class="blog-card-excerpt">${a.excerpt}</p><div class="blog-card-meta"><span class="blog-card-date">${a.dateFormatted} · ${a.read_time}</span><a class="blog-card-read" href="article-${a.slug}.html">Leer →</a></div></div></div>`;
     }
   });
   h+='</div>';
