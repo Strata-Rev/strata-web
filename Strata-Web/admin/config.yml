@@ -1,0 +1,24 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "images/uploads"
+public_folder: "/images/uploads"
+
+locale: es
+
+collections:
+  - name: "blog"
+    label: "Artículos del Blog"
+    folder: "blog"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - { label: "Título", name: "title", widget: "string" }
+      - { label: "Fecha de publicación", name: "date", widget: "datetime", format: "YYYY-MM-DD", date_format: "DD/MM/YYYY", time_format: false }
+      - { label: "Categoría", name: "category", widget: "select", options: ["Pricing · Revenue", "Distribución · OTAs", "IA · Data", "Marketing Hotelero", "Estrategia", "Casos de Éxito"] }
+      - { label: "Tiempo de lectura (ej: 6 min)", name: "read_time", widget: "string", default: "5 min" }
+      - { label: "Imagen de portada (URL de Unsplash u otra)", name: "cover_image", widget: "string", hint: "Pega una URL de imagen, ej: https://images.unsplash.com/..." }
+      - { label: "Extracto (2-3 líneas que aparecen en la tarjeta)", name: "excerpt", widget: "text" }
+      - { label: "Contenido del artículo", name: "body", widget: "markdown" }
+      - { label: "Publicado", name: "published", widget: "boolean", default: true }
