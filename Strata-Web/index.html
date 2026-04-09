@@ -27,7 +27,9 @@ nav{
   border-bottom:1px solid rgba(201,150,42,.15);
   backdrop-filter:blur(12px);
 }
-.nav-logo img{height:47px;width:auto;display:block}
+.nav-logo{display:flex;align-items:center;gap:.8rem;text-decoration:none}
+.nav-logo img{height:56px;width:auto;display:block}
+.nav-brand{font-family:var(--syne);font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.7);line-height:1.3;white-space:nowrap}
 .nav-links{display:flex;gap:2rem;list-style:none}
 .nav-links a{
   font-size:.75rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;
@@ -365,10 +367,9 @@ footer{padding:1.6rem 5%;background:rgba(0,0,0,.4);border-top:1px solid rgba(201
 <nav>
   <a href="index.html" class="nav-logo">
     <img src="logo-dark.png" alt="Strata Revenue Intelligence">
+    <span class="nav-brand">Strata<br>Revenue Intelligence</span>
   </a>
   <ul class="nav-links">
-    <li><a href="#tecnologia">Tecnología IA</a></li>
-    <li><a href="#roi">Calculadora ROI</a></li>
     <li><a href="#servicios">Servicios</a></li>
     <li><a href="blog.html">Blog</a></li>
     <li><a href="#proceso">Proceso</a></li>
@@ -449,7 +450,6 @@ footer{padding:1.6rem 5%;background:rgba(0,0,0,.4);border-top:1px solid rgba(201
       <div class="ai-feat">Alertas de oportunidad y recomendaciones semanales</div>
       <div class="ai-feat">Integración con Cloudbeds, Little Hotelier, Opera y más</div>
     </div>
-    <a href="#contacto" class="btn-gold">Solicitar demo del dashboard</a>
   </div>
   <div class="ai-dashboard reveal reveal-delay-2">
     <div class="dash-header">
