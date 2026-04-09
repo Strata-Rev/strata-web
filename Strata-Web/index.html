@@ -7,19 +7,6 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Lora:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
-<script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
-  <script>
-    if (window.netlifyIdentity) {
-      window.netlifyIdentity.on("init", user => {
-        if (!user) {
-          window.netlifyIdentity.on("login", () => {
-            document.location.href = "/admin/";
-          });
-        }
-      });
-    }
-  </script>
-</head>
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
@@ -40,11 +27,7 @@ nav{
   border-bottom:1px solid rgba(201,150,42,.15);
   backdrop-filter:blur(12px);
 }
-.nav-logo{display:flex;align-items:center;gap:.75rem;text-decoration:none}
-.nav-logo img{height:56px;width:auto;display:block}
-.nav-logo-text{display:flex;flex-direction:column;line-height:1}
-.nav-logo-name{font-family:var(--syne);font-size:1rem;font-weight:800;letter-spacing:.04em;color:var(--white);text-transform:uppercase}
-.nav-logo-sub{font-size:.6rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--gold2);margin-top:.2rem}
+.nav-logo img{height:47px;width:auto;display:block}
 .nav-links{display:flex;gap:2rem;list-style:none}
 .nav-links a{
   font-size:.75rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;
@@ -370,8 +353,10 @@ footer{padding:1.6rem 5%;background:rgba(0,0,0,.4);border-top:1px solid rgba(201
 
 <!-- MOBILE MENU -->
 <div class="mobile-menu" id="mobileMenu">
+  <a href="#tecnologia" onclick="closeMobile()">Tecnología IA</a>
+  <a href="#roi" onclick="closeMobile()">Calculadora ROI</a>
   <a href="#servicios" onclick="closeMobile()">Servicios</a>
-  <a href="blog.html" onclick="closeMobile()">Blog</a>
+  <a href="#blog" onclick="closeMobile()">Blog</a>
   <a href="#proceso" onclick="closeMobile()">Proceso</a>
   <a href="#contacto" class="mob-cta" onclick="closeMobile()">Calcular mi ROI</a>
 </div>
@@ -380,14 +365,12 @@ footer{padding:1.6rem 5%;background:rgba(0,0,0,.4);border-top:1px solid rgba(201
 <nav>
   <a href="#" class="nav-logo">
     <img src="logo-dark.png" alt="Strata Revenue Intelligence">
-    <div class="nav-logo-text">
-      <span class="nav-logo-name">Strata</span>
-      <span class="nav-logo-sub">Revenue Intelligence</span>
-    </div>
   </a>
   <ul class="nav-links">
+    <li><a href="#tecnologia">Tecnología IA</a></li>
+    <li><a href="#roi">Calculadora ROI</a></li>
     <li><a href="#servicios">Servicios</a></li>
-    <li><a href="blog.html">Blog</a></li>
+    <li><a href="#blog">Blog</a></li>
     <li><a href="#proceso">Proceso</a></li>
   </ul>
   <a href="#contacto" class="nav-cta">Calcular mi ROI</a>
@@ -466,6 +449,7 @@ footer{padding:1.6rem 5%;background:rgba(0,0,0,.4);border-top:1px solid rgba(201
       <div class="ai-feat">Alertas de oportunidad y recomendaciones semanales</div>
       <div class="ai-feat">Integración con Cloudbeds, Little Hotelier, Opera y más</div>
     </div>
+    <a href="#contacto" class="btn-gold">Solicitar demo del dashboard</a>
   </div>
   <div class="ai-dashboard reveal reveal-delay-2">
     <div class="dash-header">
@@ -693,8 +677,8 @@ footer{padding:1.6rem 5%;background:rgba(0,0,0,.4);border-top:1px solid rgba(201
 <footer>
   <span class="footer-copy">© 2026 Strata Revenue Intelligence</span>
   <ul class="footer-links">
-    <li><a href="https://www.linkedin.com/company/strata-revenue-intelligence" target="_blank" rel="noopener">LinkedIn</a></li>
-    <li><a href="#">WhatsApp</a></li>
+    <li><a href="#">LinkedIn</a></li>
+    <li><a href="#">Instagram</a></li>
     <li><a href="#">Calendly</a></li>
   </ul>
 </footer>

@@ -9,68 +9,71 @@
 <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-:root{--gold:#C9962A;--gold2:#E8B84B;--ink:#0C0B09;--ink2:#2E2C28;--ink3:#6B6860;--cream:#FAF7F0;--syne:'Syne',sans-serif;--lora:'Lora',Georgia,serif}
+:root{--gold:#C9962A;--gold2:#E8B84B;--ink:#0C0B09;--syne:'Syne',sans-serif;--lora:'Lora',Georgia,serif}
 html{scroll-behavior:smooth}
-body{background:var(--ink);color:#fff;font-family:var(--syne);overflow-x:hidden}
+body{background:var(--ink);color:#fff;font-family:var(--syne);overflow-x:hidden;font-size:16px}
 nav{position:fixed;top:0;left:0;right:0;z-index:300;display:flex;justify-content:space-between;align-items:center;padding:1rem 5%;background:rgba(12,11,9,.96);border-bottom:1px solid rgba(201,150,42,.15);backdrop-filter:blur(12px)}
-.nav-logo img{height:47px;width:auto;display:block}
+.nav-logo img{height:40px;width:auto;display:block}
 .nav-links{display:flex;gap:2rem;list-style:none}
-.nav-links a{font-size:.75rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.55);text-decoration:none;transition:color .2s}
+.nav-links a{font-size:.72rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.55);text-decoration:none;transition:color .2s}
 .nav-links a:hover{color:var(--gold2)}
-.nav-cta{font-size:.75rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;background:transparent;color:var(--gold2);border:1.5px solid var(--gold2);padding:.6rem 1.5rem;text-decoration:none;transition:all .2s;white-space:nowrap}
+.nav-cta{font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;background:transparent;color:var(--gold2);border:1.5px solid var(--gold2);padding:.55rem 1.4rem;text-decoration:none;transition:all .2s;white-space:nowrap}
 .nav-cta:hover{background:var(--gold2);color:var(--ink)}
 .nav-hamburger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:4px;z-index:310}
-.nav-hamburger span{display:block;width:24px;height:2px;background:rgba(255,255,255,.75);transition:all .25s}
+.nav-hamburger span{display:block;width:22px;height:2px;background:rgba(255,255,255,.75);transition:all .25s}
 .nav-hamburger.open span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
 .nav-hamburger.open span:nth-child(2){opacity:0}
 .nav-hamburger.open span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
-.mobile-menu{display:none;position:fixed;inset:0;z-index:250;background:rgba(12,11,9,.99);flex-direction:column;align-items:center;justify-content:center;gap:2.2rem}
+.mobile-menu{display:none;position:fixed;inset:0;z-index:250;background:rgba(12,11,9,.99);flex-direction:column;align-items:center;justify-content:center;gap:2rem}
 .mobile-menu.open{display:flex}
-.mobile-menu a{font-size:1.35rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:rgba(255,255,255,.7);text-decoration:none}
-.mobile-menu .mob-cta{background:var(--gold);color:var(--ink);padding:.95rem 3rem;font-weight:700;font-size:.95rem}
-.article-hero{padding:9rem 5% 4rem;border-bottom:1px solid rgba(255,255,255,.05)}
-.article-back{display:inline-flex;align-items:center;gap:.5rem;font-size:.75rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.35);text-decoration:none;margin-bottom:2.5rem;transition:color .2s}
+.mobile-menu a{font-size:1.2rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:rgba(255,255,255,.7);text-decoration:none}
+.mobile-menu .mob-cta{background:var(--gold);color:var(--ink);padding:.9rem 2.5rem;font-weight:700;font-size:.9rem}
+.article-hero{padding:8rem 5% 3rem;border-bottom:1px solid rgba(255,255,255,.05)}
+.article-back{display:inline-flex;align-items:center;gap:.5rem;font-size:.72rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.35);text-decoration:none;margin-bottom:2rem;transition:color .2s}
 .article-back:hover{color:var(--gold2)}
-.article-cat{font-size:.7rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--gold2);margin-bottom:1.2rem;display:block}
-.article-title{font-family:var(--syne);font-size:clamp(2rem,4vw,3.8rem);font-weight:800;line-height:1.08;letter-spacing:-.02em;color:#fff;margin-bottom:1.5rem}
-.article-meta{display:flex;gap:2rem;align-items:center;flex-wrap:wrap}
-.article-date,.article-time{font-size:.75rem;color:rgba(255,255,255,.3);letter-spacing:.06em}
-.article-cover{width:100%;max-height:560px;object-fit:cover;display:block}
-.article-body{max-width:720px;margin:0 auto;padding:5rem 5% 6rem}
-.article-body h2{font-family:var(--syne);font-size:1.7rem;font-weight:800;color:#fff;margin:3rem 0 1rem;letter-spacing:-.02em}
-.article-body h3{font-family:var(--syne);font-size:1.2rem;font-weight:700;color:var(--gold2);margin:2rem 0 .8rem}
-.article-body p{font-family:var(--lora);font-size:1.1rem;color:rgba(255,255,255,.7);line-height:1.9;margin-bottom:1.5rem}
-.article-body strong{color:#fff;font-family:var(--syne);font-size:.95em;font-weight:700}
-.article-body ul,.article-body ol{font-family:var(--lora);font-size:1rem;color:rgba(255,255,255,.65);line-height:1.85;margin:1rem 0 1.5rem 1.8rem}
-.article-body li{margin-bottom:.5rem}
-.article-body hr{border:none;border-top:1px solid rgba(255,255,255,.08);margin:3rem 0}
+.article-cat{font-size:.68rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--gold2);margin-bottom:1rem;display:block}
+.article-title{font-family:var(--syne);font-size:clamp(1.6rem,3.5vw,3rem);font-weight:800;line-height:1.1;letter-spacing:-.02em;color:#fff;margin-bottom:1.2rem}
+.article-meta{display:flex;gap:1.5rem;align-items:center;flex-wrap:wrap}
+.article-date,.article-time{font-size:.72rem;color:rgba(255,255,255,.3);letter-spacing:.06em}
+.article-cover{width:100%;height:clamp(200px,38vw,480px);object-fit:cover;display:block}
+.article-body{max-width:680px;margin:0 auto;padding:3.5rem 5% 5rem}
+.article-body h2{font-family:var(--syne);font-size:clamp(1.25rem,2.5vw,1.55rem);font-weight:800;color:#fff;margin:2.5rem 0 .8rem;letter-spacing:-.01em}
+.article-body h3{font-family:var(--syne);font-size:clamp(1rem,2vw,1.12rem);font-weight:700;color:var(--gold2);margin:1.8rem 0 .6rem}
+.article-body p{font-family:var(--lora);font-size:clamp(.92rem,1.8vw,1.05rem);color:rgba(255,255,255,.72);line-height:1.85;margin-bottom:1.3rem}
+.article-body strong{color:#fff;font-family:var(--syne);font-size:.93em;font-weight:700}
+.article-body ul,.article-body ol{font-family:var(--lora);font-size:clamp(.88rem,1.7vw,1rem);color:rgba(255,255,255,.65);line-height:1.8;margin:1rem 0 1.3rem 1.5rem}
+.article-body li{margin-bottom:.4rem}
+.article-body hr{border:none;border-top:1px solid rgba(255,255,255,.08);margin:2.5rem 0}
 .article-body a{color:var(--gold2);text-decoration:none;border-bottom:1px solid rgba(201,150,42,.3);transition:border-color .2s}
 .article-body a:hover{border-color:var(--gold2)}
-.highlight-box{background:rgba(201,150,42,.08);border-left:3px solid var(--gold);padding:1.8rem 2rem;margin:2rem 0}
-.highlight-box p{margin-bottom:0;font-size:1rem}
-.article-cta{max-width:720px;margin:0 auto;padding:0 5% 6rem}
-.cta-box{background:rgba(201,150,42,.08);border:1px solid rgba(201,150,42,.2);padding:3rem;text-align:center}
-.cta-box h3{font-family:var(--syne);font-size:1.4rem;font-weight:800;color:#fff;margin-bottom:.8rem;letter-spacing:-.01em}
-.cta-box p{font-family:var(--lora);font-style:italic;font-size:1rem;color:rgba(255,255,255,.5);margin-bottom:1.8rem}
-.cta-box a{display:inline-block;font-size:.82rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;background:var(--gold);color:var(--ink);padding:1rem 2.8rem;text-decoration:none;transition:background .2s}
+.highlight-box{background:rgba(201,150,42,.07);border-left:3px solid var(--gold);padding:1.4rem 1.6rem;margin:1.5rem 0}
+.highlight-box p{margin-bottom:0!important;font-size:clamp(.88rem,1.6vw,.98rem)!important}
+.article-cta{max-width:680px;margin:0 auto;padding:0 5% 4rem}
+.cta-box{background:rgba(201,150,42,.07);border:1px solid rgba(201,150,42,.2);padding:2.5rem;text-align:center}
+.cta-box h3{font-family:var(--syne);font-size:clamp(1.1rem,2.5vw,1.35rem);font-weight:800;color:#fff;margin-bottom:.7rem}
+.cta-box p{font-family:var(--lora);font-style:italic;font-size:clamp(.88rem,1.6vw,.98rem);color:rgba(255,255,255,.5);margin-bottom:1.5rem}
+.cta-box a{display:inline-block;font-size:.78rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;background:var(--gold);color:var(--ink);padding:.9rem 2.4rem;text-decoration:none;transition:background .2s}
 .cta-box a:hover{background:var(--gold2)}
-.related{max-width:720px;margin:0 auto;padding:0 5% 8rem}
-.related h3{font-family:var(--syne);font-size:1.1rem;font-weight:700;color:rgba(255,255,255,.35);letter-spacing:.1em;text-transform:uppercase;margin-bottom:2rem;padding-bottom:1rem;border-bottom:1px solid rgba(255,255,255,.06)}
+.related{max-width:680px;margin:0 auto;padding:0 5% 6rem}
+.related-label{font-family:var(--syne);font-size:.82rem;font-weight:700;color:rgba(255,255,255,.28);letter-spacing:.12em;text-transform:uppercase;margin-bottom:1.5rem;padding-bottom:.8rem;border-bottom:1px solid rgba(255,255,255,.06)}
 .related-grid{display:grid;grid-template-columns:1fr 1fr;gap:2px}
-.related-card{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.05);padding:2rem;text-decoration:none;transition:border-color .25s;display:block}
+.related-card{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.05);padding:1.6rem;text-decoration:none;transition:border-color .25s;display:block}
 .related-card:hover{border-color:rgba(201,150,42,.3)}
-.related-tag{font-size:.62rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--gold2);margin-bottom:.7rem;display:block}
-.related-title{font-family:var(--syne);font-size:.95rem;font-weight:700;color:#fff;line-height:1.3;letter-spacing:-.01em}
-footer{padding:1.6rem 5%;background:rgba(0,0,0,.4);border-top:1px solid rgba(201,150,42,.08);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem}
-.footer-copy{font-size:.73rem;color:rgba(255,255,255,.22)}
-.footer-links{display:flex;gap:1.8rem;list-style:none}
-.footer-links a{font-size:.73rem;color:rgba(255,255,255,.22);text-decoration:none;transition:color .2s}
+.related-tag{font-size:.6rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--gold2);margin-bottom:.6rem;display:block}
+.related-title{font-family:var(--syne);font-size:.88rem;font-weight:700;color:#fff;line-height:1.3}
+footer{padding:1.4rem 5%;background:rgba(0,0,0,.4);border-top:1px solid rgba(201,150,42,.08);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem}
+.footer-copy{font-size:.7rem;color:rgba(255,255,255,.22)}
+.footer-links{display:flex;gap:1.5rem;list-style:none}
+.footer-links a{font-size:.7rem;color:rgba(255,255,255,.22);text-decoration:none;transition:color .2s}
 .footer-links a:hover{color:var(--gold2)}
-@media(max-width:768px){
-  .nav-links,.nav-cta{display:none}
-  .nav-hamburger{display:flex}
-  .article-hero{padding:7rem 4% 3rem}
-  .article-body,.article-cta,.related{padding-left:4%;padding-right:4%}
+@media(max-width:960px){.nav-links,.nav-cta{display:none}.nav-hamburger{display:flex}}
+@media(max-width:640px){
+  .article-hero{padding:6rem 4% 2.5rem}
+  .article-cover{height:52vw;min-height:180px}
+  .article-body{padding:2.5rem 4% 4rem}
+  .article-cta{padding:0 4% 3rem}
+  .cta-box{padding:2rem 1.5rem}
+  .related{padding:0 4% 4rem}
   .related-grid{grid-template-columns:1fr}
   footer{flex-direction:column;text-align:center}
 }
@@ -100,14 +103,14 @@ footer{padding:1.6rem 5%;background:rgba(0,0,0,.4);border-top:1px solid rgba(201
 <div class="article-hero">
   <a href="blog.html" class="article-back">← Volver al blog</a>
   <span class="article-cat">Distribución · OTAs</span>
-  <h1 class="article-title">Cómo reducir tu dependencia de Booking.com<br>sin perder ocupación</h1>
+  <h1 class="article-title">Cómo reducir tu dependencia de Booking.com sin perder ocupación</h1>
   <div class="article-meta">
     <span class="article-date">28 Feb 2026</span>
     <span class="article-time">8 min de lectura</span>
   </div>
 </div>
 
-<img class="article-cover" src="https://images.unsplash.com/photo-1566073771259-6a8506099945?w=1600&q=90&auto=format&fit=crop" alt="Hotel OTA distribución">
+<img class="article-cover" src="https://images.unsplash.com/photo-1566073771259-6a8506099945?w=1600&q=85&auto=format&fit=crop" alt="Hotel OTA distribución">
 
 <div class="article-body">
   <p>Si más del 60% de tus reservas vienen de Booking.com o Expedia, tienes un riesgo de negocio que probablemente no estás midiendo. No es solo el costo de la comisión — es que estás construyendo tu negocio sobre terreno que no controlas.</p>
@@ -137,7 +140,7 @@ footer{padding:1.6rem 5%;background:rgba(0,0,0,.4);border-top:1px solid rgba(201
   <p>Cada huésped que se hospeda en tu hotel es un prospecto de reserva directa para la próxima visita. Un email bien diseñado 3 meses después de su visita, con una oferta exclusiva para reservar directo, convierte entre <strong>8-15% de los contactos</strong>.</p>
 
   <h3>Paso 4: Gestiona el rate parity con inteligencia</h3>
-  <p>Las OTAs tienen cláusulas de paridad de tarifas, pero hay espacio para diferenciarte en <strong>valor</strong>, no solo en precio. Paquetes con experiencias, beneficios adicionales y comunicación de marca son mecanismos legítimos para hacer más atractiva la reserva directa.</p>
+  <p>Las OTAs tienen cláusulas de paridad de tarifas, pero hay espacio para diferenciarte en <strong>valor</strong>, no solo en precio. Paquetes con experiencias y beneficios adicionales son mecanismos legítimos para hacer más atractiva la reserva directa.</p>
 
   <h2>Resultados esperados</h2>
   <p>Con una estrategia de reservas directas activa durante 12 meses, los hoteles que trabajo típicamente pasan de 70% OTA a 45-50% OTA, y de 10% directo a 30-35% directo.</p>
@@ -155,7 +158,7 @@ footer{padding:1.6rem 5%;background:rgba(0,0,0,.4);border-top:1px solid rgba(201
 </div>
 
 <div class="related">
-  <h3>Más artículos</h3>
+  <p class="related-label">Más artículos</p>
   <div class="related-grid">
     <a href="article-revpar-hoteles-boutique.html" class="related-card">
       <span class="related-tag">Pricing · Revenue</span>
@@ -171,7 +174,9 @@ footer{padding:1.6rem 5%;background:rgba(0,0,0,.4);border-top:1px solid rgba(201
 <footer>
   <span class="footer-copy">© 2026 Strata Revenue Intelligence</span>
   <ul class="footer-links">
-    <li><a href="#">LinkedIn</a></li><li><a href="#">WhatsApp</a></li><li><a href="#">Calendly</a></li>
+    <li><a href="https://www.linkedin.com/company/strata-revenue-intelligence" target="_blank">LinkedIn</a></li>
+    <li><a href="https://www.instagram.com/stratarevenue" target="_blank">Instagram</a></li>
+    <li><a href="#" target="_blank">Calendly</a></li>
   </ul>
 </footer>
 <script>
