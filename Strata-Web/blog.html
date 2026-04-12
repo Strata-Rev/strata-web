@@ -155,9 +155,10 @@ footer{padding:1.6rem 5%;background:rgba(0,0,0,.4);border-top:1px solid rgba(201
     <h3>Recibe insights de <em>revenue</em> cada semana.</h3>
     <p>Sin spam. Solo estrategia práctica para hoteles independientes en LATAM.</p>
     <div class="newsletter-form">
-      <input class="newsletter-input" type="email" placeholder="correo@tuhotel.com">
-      <button class="newsletter-btn">Suscribirme</button>
+      <input class="newsletter-input" type="email" id="nlEmail" placeholder="correo@tuhotel.com" required>
+      <button class="newsletter-btn" id="nlBtn" onclick="submitNewsletter()">Suscribirme</button>
     </div>
+    <p id="nlMsg" style="display:none;margin-top:1rem;font-size:.85rem;font-family:var(--lora);font-style:italic;color:var(--gold2)"></p>
   </div>
 </main>
 
@@ -209,6 +210,43 @@ function filterPosts(filter,btn){
 }
 
 renderPosts('all');
+
+async function submitNewsletter(){
+  const emailInput = document.getElementById('nlEmail');
+  const btn = document.getElementById('nlBtn');
+  const msg = document.getElementById('nlMsg');
+  const email = emailInput.value.trim();
+  if(!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){
+    msg.textContent = 'Por favor ingresa un correo válido.';
+    msg.style.color = '#ff6b6b';
+    msg.style.display = 'block';
+    return;
+  }
+  btn.textContent = 'Enviando...';
+  btn.disabled = true;
+  try {
+    const res = await fetch('https://formspree.io/f/xbdqrprq', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json', 'Accept': 'application/json'},
+      body: JSON.stringify({email, source: 'newsletter-blog'})
+    });
+    if(res.ok){
+      msg.textContent = '✓ ¡Suscrito! Recibirás insights cada semana.';
+      msg.style.color = 'var(--gold2)';
+      msg.style.display = 'block';
+      emailInput.value = '';
+      btn.textContent = '¡Listo!';
+    } else {
+      throw new Error();
+    }
+  } catch(e){
+    msg.textContent = 'Hubo un error. Intenta de nuevo más tarde.';
+    msg.style.color = '#ff6b6b';
+    msg.style.display = 'block';
+    btn.textContent = 'Suscribirme';
+    btn.disabled = false;
+  }
+}
 </script>
 </body>
 </html>
