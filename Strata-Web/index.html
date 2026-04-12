@@ -15,8 +15,8 @@
   --cream:#FAF7F0;--cream2:#F2EDE3;--white:#FFFFFF;
   --syne:'Syne',sans-serif;--lora:'Lora',Georgia,serif;
 }
-html{scroll-behavior:smooth}
-body{background:var(--ink);color:var(--white);font-family:var(--syne);overflow-x:hidden}
+html{scroll-behavior:smooth;overflow-x:hidden;width:100%}
+body{background:var(--ink);color:var(--white);font-family:var(--syne);overflow-x:hidden;width:100%;max-width:100%}
 
 /* ─── NAV ─── */
 nav{
@@ -264,9 +264,9 @@ nav{
 .blog-card-read:hover{color:var(--white)}
 
 /* ─── MERCADOS ─── */
-.mercados{padding:3.5rem 5%;background:var(--ink);border-top:1px solid rgba(201,150,42,.1)}
+.mercados{padding:3.5rem 5%;background:var(--ink);border-top:1px solid rgba(201,150,42,.1);overflow:hidden;width:100%}
 .mercados-label{font-size:.68rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.2);margin-bottom:1.5rem;display:block}
-.mercados-row{display:flex;flex-wrap:wrap;gap:7px}
+.mercados-row{display:flex;flex-wrap:wrap;gap:7px;width:100%}
 .pill{font-size:.76rem;font-weight:500;letter-spacing:.04em;color:rgba(255,255,255,.35);border:1px solid rgba(255,255,255,.09);padding:.45rem 1.1rem;transition:all .2s;cursor:default}
 .pill:hover{color:var(--gold2);border-color:rgba(201,150,42,.35);background:rgba(201,150,42,.05)}
 
@@ -393,7 +393,7 @@ footer{padding:1.6rem 5%;background:rgba(0,0,0,.4);border-top:1px solid rgba(201
     <h1 class="hero-h1">Cada decisión de precio<br>respaldada por <span class="accent">datos e inteligencia.</span></h1>
     <p class="hero-desc">Combino análisis de datos avanzado, inteligencia artificial y estrategia probada para que tu hotel independiente maximice su rentabilidad — sin depender de OTAs ni dejar dinero sobre la mesa.</p>
     <div class="hero-actions">
-      <a href="#roi" class="btn-gold">Calcular mi ROI</a>
+      <a href="#contacto" class="btn-gold">Calcular mi ROI</a>
       <a href="#tecnologia" class="btn-ghost">Ver cómo funciona</a>
     </div>
   </div>
@@ -648,6 +648,7 @@ footer{padding:1.6rem 5%;background:rgba(0,0,0,.4);border-top:1px solid rgba(201
 </section>
 
 <!-- MERCADOS -->
+<div class="mercados reveal">
   <span class="mercados-label">Mercados activos</span>
   <div class="mercados-row">
     <span class="pill">México · Yucatán</span><span class="pill">México · Oaxaca</span>
