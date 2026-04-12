@@ -43,8 +43,12 @@ nav{position:fixed;top:0;left:0;right:0;z-index:300;display:flex;justify-content
 .filter-btn{font-size:.72rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.4);border:1px solid rgba(255,255,255,.08);padding:.45rem 1rem;background:none;cursor:pointer;transition:all .2s}
 .filter-btn:hover,.filter-btn.active{color:var(--gold2);border-color:rgba(201,150,42,.4);background:rgba(201,150,42,.06)}
 .blog-main{padding:5rem 5% 8rem}
-.blog-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:2px;margin-bottom:4rem}
-.blog-card-featured{grid-column:span 2;display:grid;grid-template-columns:1fr 1fr;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.05);overflow:hidden;transition:border-color .3s;margin-bottom:2px}
+/* Artículo destacado: ancho completo, imagen izq + texto der */
+.blog-card-featured{
+  display:grid;grid-template-columns:1fr 1fr;
+  background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.05);
+  overflow:hidden;transition:border-color .3s;margin-bottom:3px;width:100%
+}
 .blog-card-featured:hover{border-color:rgba(201,150,42,.3)}
 .feat-img{overflow:hidden;min-height:380px}
 .feat-img img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .7s;filter:brightness(.85)}
@@ -57,6 +61,8 @@ nav{position:fixed;top:0;left:0;right:0;z-index:300;display:flex;justify-content
 .feat-date{font-size:.7rem;color:rgba(255,255,255,.28);letter-spacing:.06em}
 .feat-read{font-size:.72rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--gold2);text-decoration:none;transition:color .2s}
 .feat-read:hover{color:#fff}
+/* Grid de tarjetas secundarias */
+.blog-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:3px;margin-bottom:4rem;margin-top:3px}
 .blog-card{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.05);overflow:hidden;transition:border-color .25s;display:flex;flex-direction:column}
 .blog-card:hover{border-color:rgba(201,150,42,.3)}
 .blog-card-img{width:100%;aspect-ratio:16/9;object-fit:cover;display:block;transition:transform .6s;filter:brightness(.85)}
@@ -91,7 +97,7 @@ footer{padding:1.6rem 5%;background:rgba(0,0,0,.4);border-top:1px solid rgba(201
 @media(max-width:960px){
   .nav-links,.nav-cta{display:none}
   .nav-hamburger{display:flex}
-  .blog-card-featured{grid-column:span 2;grid-template-columns:1fr}
+  .blog-card-featured{grid-template-columns:1fr}
   .feat-img{min-height:50vw}
   .feat-body{padding:2.5rem 2rem}
   .blog-grid{grid-template-columns:1fr 1fr}
@@ -102,7 +108,6 @@ footer{padding:1.6rem 5%;background:rgba(0,0,0,.4);border-top:1px solid rgba(201
   .filters{padding:1.5rem 4%}
   .blog-main{padding:3.5rem 4% 5rem}
   .blog-grid{grid-template-columns:1fr}
-  .blog-card-featured{grid-column:span 1}
   .newsletter-form{flex-direction:column}
   .newsletter-input{border-right:1.5px solid rgba(201,150,42,.28);border-bottom:none}
 }
@@ -190,15 +195,16 @@ function renderPosts(filter){
   const list=filter==='all'?articles:articles.filter(a=>a.category===filter);
   const c=document.getElementById('blog-container');
   if(!list.length){c.innerHTML='<div class="empty"><p>No hay artículos en esta categoría todavía.</p></div>';return}
-  let h='<div class="blog-grid">';
+  let h='';
   list.forEach((a,i)=>{
     if(i===0){
       h+=`<div class="blog-card-featured reveal" data-cat="${a.category}"><div class="feat-img"><img src="${a.cover_image}" alt="${a.title}" loading="lazy"></div><div class="feat-body"><span class="feat-tag">${a.category}</span><h2 class="feat-title">${a.title}</h2><p class="feat-excerpt">${a.excerpt}</p><div class="feat-meta"><span class="feat-date">${a.dateFormatted} · ${a.read_time}</span><a class="feat-read" href="article-${a.slug}.html">Leer artículo →</a></div></div></div>`;
+      if(list.length>1) h+='<div class="blog-grid">';
     } else {
       h+=`<div class="blog-card reveal" data-cat="${a.category}"><img class="blog-card-img" src="${a.cover_image}" alt="${a.title}" loading="lazy"><div class="blog-card-body"><span class="blog-card-tag">${a.category}</span><h3 class="blog-card-title">${a.title}</h3><p class="blog-card-excerpt">${a.excerpt}</p><div class="blog-card-meta"><span class="blog-card-date">${a.dateFormatted} · ${a.read_time}</span><a class="blog-card-read" href="article-${a.slug}.html">Leer →</a></div></div></div>`;
     }
   });
-  h+='</div>';
+  if(list.length>1) h+='</div>';
   c.innerHTML=h;
   setTimeout(()=>{document.querySelectorAll('.reveal:not(.visible)').forEach(el=>obs.observe(el))},50);
 }
