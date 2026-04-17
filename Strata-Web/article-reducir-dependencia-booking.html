@@ -118,14 +118,14 @@ nav{position:fixed;top:0;left:0;right:0;z-index:300;display:flex;justify-content
 .mobile-menu.open{display:flex}
 .mobile-menu a{font-size:1.2rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:rgba(255,255,255,.7);text-decoration:none}
 .mobile-menu .mob-cta{background:var(--gold);color:var(--ink);padding:.9rem 2.5rem;font-weight:700;font-size:.9rem}
-.article-hero{padding:8rem 5% 3rem;border-bottom:1px solid rgba(255,255,255,.05)}
+.article-hero{padding:7rem 5% 3rem;margin-top:72px;border-bottom:1px solid rgba(255,255,255,.05)}
 .article-back{display:inline-flex;align-items:center;gap:.5rem;font-size:.72rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.35);text-decoration:none;margin-bottom:2rem;transition:color .2s}
 .article-back:hover{color:var(--gold2)}
 .article-cat{font-size:.68rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--gold2);margin-bottom:1rem;display:block}
 .article-title{font-family:var(--syne);font-size:clamp(1.6rem,3.5vw,3rem);font-weight:800;line-height:1.1;letter-spacing:-.02em;color:#fff;margin-bottom:1.2rem}
 .article-meta{display:flex;gap:1.5rem;align-items:center;flex-wrap:wrap}
 .article-date,.article-time{font-size:.72rem;color:rgba(255,255,255,.3);letter-spacing:.06em}
-.article-cover{width:100%;height:clamp(200px,38vw,480px);object-fit:cover;display:block}
+.article-cover{width:100%;max-height:480px;height:clamp(200px,32vw,480px);object-fit:cover;object-position:center;display:block}
 .article-body{max-width:680px;margin:0 auto;padding:3.5rem 5% 5rem}
 .article-body h2{font-family:var(--syne);font-size:clamp(1.25rem,2.5vw,1.55rem);font-weight:800;color:#fff;margin:2.5rem 0 .8rem;letter-spacing:-.01em}
 .article-body h3{font-family:var(--syne);font-size:clamp(1rem,2vw,1.12rem);font-weight:700;color:var(--gold2);margin:1.8rem 0 .6rem}
@@ -170,8 +170,8 @@ footer{padding:1.4rem 5%;background:rgba(0,0,0,.4);border-top:1px solid rgba(201
 .footer-links a:hover{color:var(--gold2)}
 @media(max-width:960px){.nav-links,.nav-cta{display:none}.nav-hamburger{display:flex}}
 @media(max-width:640px){
-  .article-hero{padding:6rem 4% 2.5rem}
-  .article-cover{height:52vw;min-height:180px}
+  .article-hero{padding:2.5rem 4% 2.5rem;margin-top:60px}
+  .article-cover{height:52vw;min-height:180px;max-height:300px}
   .article-body{padding:2.5rem 4% 4rem}
   .article-cta{padding:0 4% 3rem}
   .cta-box{padding:2rem 1.5rem}
