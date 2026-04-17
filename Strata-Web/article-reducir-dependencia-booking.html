@@ -99,8 +99,8 @@
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{--gold:#C9962A;--gold2:#E8B84B;--ink:#0C0B09;--syne:'Syne',sans-serif;--lora:'Lora',Georgia,serif}
 html{scroll-behavior:smooth}
-body{background:var(--ink);color:#fff;font-family:var(--syne);overflow-x:hidden;font-size:16px;padding-top:72px}
-nav{position:fixed;top:0;left:0;right:0;z-index:300;height:72px;display:flex;justify-content:space-between;align-items:center;padding:0 5%;background:rgba(12,11,9,.96);border-bottom:1px solid rgba(201,150,42,.15);backdrop-filter:blur(12px)}
+body{background:var(--ink);color:#fff;font-family:var(--syne);overflow-x:hidden;font-size:16px}
+nav{position:fixed;top:0;left:0;right:0;z-index:300;display:flex;justify-content:space-between;align-items:center;padding:1rem 5%;background:rgba(12,11,9,.96);border-bottom:1px solid rgba(201,150,42,.15);backdrop-filter:blur(12px)}
 .nav-logo{display:flex;align-items:center;gap:.8rem;text-decoration:none}
 .nav-logo img{height:48px;width:auto;display:block}
 .nav-brand{font-family:var(--syne);font-size:.68rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.7);line-height:1.3;white-space:nowrap}
@@ -118,14 +118,14 @@ nav{position:fixed;top:0;left:0;right:0;z-index:300;height:72px;display:flex;jus
 .mobile-menu.open{display:flex}
 .mobile-menu a{font-size:1.2rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:rgba(255,255,255,.7);text-decoration:none}
 .mobile-menu .mob-cta{background:var(--gold);color:var(--ink);padding:.9rem 2.5rem;font-weight:700;font-size:.9rem}
-.article-hero{padding:3rem 5% 3rem;border-bottom:1px solid rgba(255,255,255,.05)}
+.article-hero{padding:5.5rem 5% 3rem;border-bottom:1px solid rgba(255,255,255,.05)}
 .article-back{display:inline-flex;align-items:center;gap:.5rem;font-size:.72rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.35);text-decoration:none;margin-bottom:2rem;transition:color .2s}
 .article-back:hover{color:var(--gold2)}
 .article-cat{font-size:.68rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--gold2);margin-bottom:1rem;display:block}
 .article-title{font-family:var(--syne);font-size:clamp(1.6rem,3.5vw,3rem);font-weight:800;line-height:1.1;letter-spacing:-.02em;color:#fff;margin-bottom:1.2rem}
 .article-meta{display:flex;gap:1.5rem;align-items:center;flex-wrap:wrap}
 .article-date,.article-time{font-size:.72rem;color:rgba(255,255,255,.3);letter-spacing:.06em}
-.article-cover{width:100%;max-width:100%;max-height:460px;height:clamp(200px,30vw,460px);object-fit:cover;object-position:center;display:block}
+.article-cover{display:none}
 .article-body{max-width:680px;margin:0 auto;padding:3.5rem 5% 5rem}
 .article-body h2{font-family:var(--syne);font-size:clamp(1.25rem,2.5vw,1.55rem);font-weight:800;color:#fff;margin:2.5rem 0 .8rem;letter-spacing:-.01em}
 .article-body h3{font-family:var(--syne);font-size:clamp(1rem,2vw,1.12rem);font-weight:700;color:var(--gold2);margin:1.8rem 0 .6rem}
@@ -170,8 +170,7 @@ footer{padding:1.4rem 5%;background:rgba(0,0,0,.4);border-top:1px solid rgba(201
 .footer-links a:hover{color:var(--gold2)}
 @media(max-width:960px){.nav-links,.nav-cta{display:none}.nav-hamburger{display:flex}}
 @media(max-width:640px){
-  .article-hero{padding:2rem 4% 2.5rem}
-  .article-cover{height:52vw;min-height:180px;max-height:280px}
+  .article-hero{padding:4.5rem 4% 2.5rem}
   .article-body{padding:2.5rem 4% 4rem}
   .article-cta{padding:0 4% 3rem}
   .cta-box{padding:2rem 1.5rem}
@@ -218,15 +217,15 @@ footer{padding:1.4rem 5%;background:rgba(0,0,0,.4);border-top:1px solid rgba(201
 </div>
 
 <!-- IMAGEN HERO -->
+<div style="width:100%;max-width:100%;overflow:hidden;height:clamp(220px,28vw,440px)">
 <img
   class="article-cover"
   src="https://images.unsplash.com/photo-1566073771259-6a8506099945?w=1600&q=85&auto=format&fit=crop"
   alt="Recepción de hotel boutique independiente con estrategia activa de reservas directas para reducir dependencia de Booking.com"
-  width="1600"
-  height="480"
   loading="eager"
   fetchpriority="high"
->
+  style="width:100%;height:100%;object-fit:cover;object-position:center;display:block"
+></div>
 
 <!-- CUERPO DEL ARTÍCULO -->
 <article class="article-body" itemscope itemtype="https://schema.org/BlogPosting">
