@@ -116,21 +116,21 @@ footer{padding:1.6rem 5%;background:rgba(0,0,0,.4);border-top:1px solid rgba(201
 <body>
 
 <div class="mobile-menu" id="mobileMenu">
-  <a href="index.html" onclick="closeMobile()">Inicio</a>
-  <a href="index.html#roi" onclick="closeMobile()">Calculadora ROI</a>
-  <a href="index.html#servicios" onclick="closeMobile()">Servicios</a>
-  <a href="blog.html" onclick="closeMobile()">Blog</a>
-  <a href="index.html#contacto" class="mob-cta" onclick="closeMobile()">Calcular mi ROI</a>
+  <a href="/" onclick="closeMobile()">Inicio</a>
+  <a href="/#roi" onclick="closeMobile()">Calculadora ROI</a>
+  <a href="/#servicios" onclick="closeMobile()">Servicios</a>
+  <a href="/blog" onclick="closeMobile()">Blog</a>
+  <a href="/#contacto" class="mob-cta" onclick="closeMobile()">Calcular mi ROI</a>
 </div>
 
 <nav>
-  <a href="index.html" class="nav-logo"><img src="logo-dark.png" alt="Strata Revenue Intelligence"><span class="nav-brand">Strata<br>Revenue Intelligence</span></a>
+  <a href="/" class="nav-logo"><img src="logo-dark.png" alt="Strata Revenue Intelligence"><span class="nav-brand">Strata<br>Revenue Intelligence</span></a>
   <ul class="nav-links">
-    <li><a href="index.html#servicios">Servicios</a></li>
-    <li><a href="blog.html" class="active">Blog</a></li>
-    <li><a href="index.html#proceso">Proceso</a></li>
+    <li><a href="/#servicios">Servicios</a></li>
+    <li><a href="/blog" class="active">Blog</a></li>
+    <li><a href="/#proceso">Proceso</a></li>
   </ul>
-  <a href="index.html#contacto" class="nav-cta">Calcular mi ROI</a>
+  <a href="/#contacto" class="nav-cta">Calcular mi ROI</a>
   <button class="nav-hamburger" id="hamburger" aria-label="Abrir menú">
     <span></span><span></span><span></span>
   </button>
@@ -198,10 +198,10 @@ function renderPosts(filter){
   let h='';
   list.forEach((a,i)=>{
     if(i===0){
-      h+=`<div class="blog-card-featured reveal" data-cat="${a.category}"><div class="feat-img"><img src="${a.cover_image}" alt="${a.title}" loading="lazy"></div><div class="feat-body"><span class="feat-tag">${a.category}</span><h2 class="feat-title">${a.title}</h2><p class="feat-excerpt">${a.excerpt}</p><div class="feat-meta"><span class="feat-date">${a.dateFormatted} · ${a.read_time}</span><a class="feat-read" href="article-${a.slug}.html">Leer artículo →</a></div></div></div>`;
+      h+=`<div class="blog-card-featured reveal" data-cat="${a.category}"><div class="feat-img"><img src="${a.cover_image}" alt="${a.title}" loading="lazy"></div><div class="feat-body"><span class="feat-tag">${a.category}</span><h2 class="feat-title">${a.title}</h2><p class="feat-excerpt">${a.excerpt}</p><div class="feat-meta"><span class="feat-date">${a.dateFormatted} · ${a.read_time}</span><a class="feat-read" href="/article-${a.slug}">Leer artículo →</a></div></div></div>`;
       if(list.length>1) h+='<div class="blog-grid">';
     } else {
-      h+=`<div class="blog-card reveal" data-cat="${a.category}"><img class="blog-card-img" src="${a.cover_image}" alt="${a.title}" loading="lazy"><div class="blog-card-body"><span class="blog-card-tag">${a.category}</span><h3 class="blog-card-title">${a.title}</h3><p class="blog-card-excerpt">${a.excerpt}</p><div class="blog-card-meta"><span class="blog-card-date">${a.dateFormatted} · ${a.read_time}</span><a class="blog-card-read" href="article-${a.slug}.html">Leer →</a></div></div></div>`;
+      h+=`<div class="blog-card reveal" data-cat="${a.category}"><img class="blog-card-img" src="${a.cover_image}" alt="${a.title}" loading="lazy"><div class="blog-card-body"><span class="blog-card-tag">${a.category}</span><h3 class="blog-card-title">${a.title}</h3><p class="blog-card-excerpt">${a.excerpt}</p><div class="blog-card-meta"><span class="blog-card-date">${a.dateFormatted} · ${a.read_time}</span><a class="blog-card-read" href="/article-${a.slug}">Leer →</a></div></div></div>`;
     }
   });
   if(list.length>1) h+='</div>';
