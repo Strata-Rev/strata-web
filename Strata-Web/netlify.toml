@@ -6,3 +6,41 @@
 
 [build.environment]
   NODE_VERSION = "18"
+
+# ── Redirects 301: URLs antiguas → nueva estructura de carpetas ──
+# Transfieren autoridad SEO acumulada a las nuevas URLs
+
+[[redirects]]
+  from = "/article-ia-revenue-management"
+  to = "/blog/article-ia-revenue-management"
+  status = 301
+
+[[redirects]]
+  from = "/article-ia-revenue-management.html"
+  to = "/blog/article-ia-revenue-management"
+  status = 301
+
+[[redirects]]
+  from = "/article-reducir-dependencia-booking"
+  to = "/blog/article-reducir-dependencia-booking"
+  status = 301
+
+[[redirects]]
+  from = "/article-reducir-dependencia-booking.html"
+  to = "/blog/article-reducir-dependencia-booking"
+  status = 301
+
+[[redirects]]
+  from = "/article-revpar-hoteles-boutique"
+  to = "/blog/article-revpar-hoteles-boutique"
+  status = 301
+
+[[redirects]]
+  from = "/article-revpar-hoteles-boutique.html"
+  to = "/blog/article-revpar-hoteles-boutique"
+  status = 301
+
+[[redirects]]
+  from = "/blog.html"
+  to = "/blog"
+  status = 301
