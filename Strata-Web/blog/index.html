@@ -3,224 +3,728 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Blog · Strata Revenue Intelligence</title>
+<title>Strata Revenue Intelligence · Revenue Management para Hoteles Boutique e Independientes</title>
+<meta name="description" content="Consultoría de revenue management para hoteles boutique, rurales e independientes en México. Aumenta tus reservas directas y reduce comisiones OTA.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://stratarevenue.com.mx/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Strata Revenue Intelligence · Revenue Management para Hoteles Boutique">
+<meta property="og:description" content="Consultoría de revenue management para hoteles boutique, rurales e independientes en México. Aumenta tus reservas directas y reduce comisiones OTA.">
+<meta property="og:url" content="https://stratarevenue.com.mx/">
+<meta property="og:image" content="https://stratarevenue.com.mx/logo-dark.png">
+<meta property="og:site_name" content="Strata Revenue Intelligence">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Strata Revenue Intelligence · Revenue Management para Hoteles Boutique">
+<meta name="twitter:description" content="Consultoría de revenue management para hoteles boutique, rurales e independientes en México.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Lora:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-:root{--gold:#C9962A;--gold2:#E8B84B;--ink:#0C0B09;--ink2:#2E2C28;--cream:#FAF7F0;--cream2:#F2EDE3;--syne:'Syne',sans-serif;--lora:'Lora',Georgia,serif}
-html{scroll-behavior:smooth}
-body{background:var(--ink);color:#fff;font-family:var(--syne);overflow-x:hidden}
-nav{position:fixed;top:0;left:0;right:0;z-index:300;display:flex;justify-content:space-between;align-items:center;padding:1rem 5%;background:rgba(12,11,9,.96);border-bottom:1px solid rgba(201,150,42,.15);backdrop-filter:blur(12px)}
-.nav-logo{display:flex;align-items:center;gap:.8rem;text-decoration:none}
+:root{
+  --gold:#C9962A;--gold2:#E8B84B;--gold3:#F5D07A;
+  --ink:#0C0B09;--ink2:#2E2C28;--ink3:#6B6860;
+  --cream:#FAF7F0;--cream2:#F2EDE3;--white:#FFFFFF;
+  --syne:'Syne',sans-serif;--lora:'Lora',Georgia,serif;
+}
+html{scroll-behavior:smooth;overflow-x:hidden;width:100%}
+body{background:var(--ink);color:var(--white);font-family:var(--syne);overflow-x:hidden;width:100%;max-width:100%}
+
+/* ─── NAV ─── */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:300;
+  display:flex;justify-content:space-between;align-items:center;
+  padding:1rem 5%;
+  background:rgba(12,11,9,.96);
+  border-bottom:1px solid rgba(201,150,42,.15);
+  backdrop-filter:blur(12px);
+}
+.nav-logo{display:flex;align-items:center;gap:.75rem;text-decoration:none}
 .nav-logo img{height:56px;width:auto;display:block}
-.nav-brand{font-family:var(--syne);font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.7);line-height:1.3;white-space:nowrap}
+.nav-logo-text{display:flex;flex-direction:column;line-height:1}
+.nav-logo-name{font-family:var(--syne);font-size:1rem;font-weight:800;letter-spacing:.04em;color:var(--white);text-transform:uppercase}
+.nav-logo-sub{font-size:.6rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--gold2);margin-top:.2rem}
 .nav-links{display:flex;gap:2rem;list-style:none}
-.nav-links a{font-size:.75rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.55);text-decoration:none;transition:color .2s}
-.nav-links a:hover,.nav-links a.active{color:var(--gold2)}
-.nav-cta{font-size:.75rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;background:transparent;color:var(--gold2);border:1.5px solid var(--gold2);padding:.6rem 1.5rem;text-decoration:none;transition:all .2s;white-space:nowrap}
+.nav-links a{
+  font-size:.75rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;
+  color:rgba(255,255,255,.55);text-decoration:none;transition:color .2s;
+}
+.nav-links a:hover{color:var(--gold2)}
+.nav-cta{
+  font-size:.75rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
+  background:transparent;color:var(--gold2);
+  border:1.5px solid var(--gold2);
+  padding:.6rem 1.5rem;text-decoration:none;
+  transition:all .2s;white-space:nowrap;
+}
 .nav-cta:hover{background:var(--gold2);color:var(--ink)}
-.nav-hamburger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:4px;z-index:310}
+.nav-hamburger{
+  display:none;flex-direction:column;gap:5px;
+  background:none;border:none;cursor:pointer;padding:4px;z-index:310;
+}
 .nav-hamburger span{display:block;width:24px;height:2px;background:rgba(255,255,255,.75);transition:all .25s}
 .nav-hamburger.open span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
 .nav-hamburger.open span:nth-child(2){opacity:0}
 .nav-hamburger.open span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
-.mobile-menu{display:none;position:fixed;inset:0;z-index:250;background:rgba(12,11,9,.99);flex-direction:column;align-items:center;justify-content:center;gap:2.2rem}
-.mobile-menu.open{display:flex}
-.mobile-menu a{font-size:1.35rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:rgba(255,255,255,.7);text-decoration:none;transition:color .2s}
-.mobile-menu a:hover{color:var(--gold2)}
-.mobile-menu .mob-cta{margin-top:.8rem;font-size:.95rem;background:var(--gold);color:var(--ink);padding:.95rem 3rem;font-weight:700}
-.blog-hero{padding:10rem 5% 6rem;position:relative;overflow:hidden;border-bottom:1px solid rgba(201,150,42,.12)}
-.blog-hero::before{content:'BLOG';position:absolute;font-family:var(--syne);font-size:18vw;font-weight:800;color:rgba(255,255,255,.025);top:50%;left:50%;transform:translate(-50%,-50%);white-space:nowrap;pointer-events:none}
-.blog-hero-inner{position:relative;z-index:1;max-width:680px}
-.blog-hero-tag{display:inline-flex;align-items:center;gap:.6rem;font-size:.7rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--gold2);margin-bottom:1.5rem}
-.blog-hero-tag::before{content:'';width:24px;height:1.5px;background:var(--gold2);display:block}
-.blog-hero h1{font-family:var(--syne);font-size:clamp(2rem,5vw,4.5rem);font-weight:800;line-height:1.05;letter-spacing:-.02em;color:#fff;margin-bottom:1.2rem}
-.blog-hero h1 em{font-family:var(--lora);font-style:italic;font-weight:400;color:var(--gold2)}
-.blog-hero p{font-family:var(--lora);font-size:1.05rem;color:rgba(255,255,255,.5);line-height:1.8}
-.filters{padding:2rem 5%;border-bottom:1px solid rgba(255,255,255,.05);display:flex;gap:.6rem;flex-wrap:wrap;align-items:center}
-.filter-label{font-size:.7rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.25);margin-right:.4rem}
-.filter-btn{font-size:.72rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.4);border:1px solid rgba(255,255,255,.08);padding:.45rem 1rem;background:none;cursor:pointer;transition:all .2s}
-.filter-btn:hover,.filter-btn.active{color:var(--gold2);border-color:rgba(201,150,42,.4);background:rgba(201,150,42,.06)}
-.blog-main{padding:5rem 5% 8rem}
-/* Artículo destacado: ancho completo, imagen izq + texto der */
-.blog-card-featured{
-  display:grid;grid-template-columns:1fr 1fr;
-  background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.05);
-  overflow:hidden;transition:border-color .3s;margin-bottom:3px;width:100%
+
+/* ─── MOBILE MENU ─── */
+.mobile-menu{
+  display:none;position:fixed;inset:0;z-index:250;
+  background:rgba(12,11,9,.99);
+  flex-direction:column;align-items:center;justify-content:center;gap:2.2rem;
 }
-.blog-card-featured:hover{border-color:rgba(201,150,42,.3)}
-.feat-img{overflow:hidden;min-height:380px}
-.feat-img img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .7s;filter:brightness(.85)}
-.blog-card-featured:hover .feat-img img{transform:scale(1.04);filter:brightness(1)}
-.feat-body{padding:3.5rem;display:flex;flex-direction:column;justify-content:center}
-.feat-tag{font-size:.65rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--gold2);margin-bottom:1rem;display:block}
-.feat-title{font-family:var(--syne);font-size:1.6rem;font-weight:800;color:#fff;line-height:1.2;margin-bottom:1rem;letter-spacing:-.02em}
-.feat-excerpt{font-family:var(--lora);font-size:.95rem;color:rgba(255,255,255,.45);line-height:1.8;margin-bottom:2rem;flex:1}
-.feat-meta{display:flex;justify-content:space-between;align-items:center;border-top:1px solid rgba(255,255,255,.06);padding-top:1.2rem}
-.feat-date{font-size:.7rem;color:rgba(255,255,255,.28);letter-spacing:.06em}
-.feat-read{font-size:.72rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--gold2);text-decoration:none;transition:color .2s}
-.feat-read:hover{color:#fff}
-/* Grid de tarjetas secundarias */
-.blog-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:3px;margin-bottom:4rem;margin-top:3px}
+.mobile-menu.open{display:flex}
+.mobile-menu a{
+  font-size:1.35rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;
+  color:rgba(255,255,255,.7);text-decoration:none;transition:color .2s;
+}
+.mobile-menu a:hover{color:var(--gold2)}
+.mobile-menu .mob-cta{
+  margin-top:.8rem;font-size:.95rem;background:var(--gold);
+  color:var(--ink);padding:.95rem 3rem;font-weight:700;
+}
+
+/* ─── HERO ─── */
+.hero{min-height:100vh;position:relative;display:flex;align-items:center;overflow:hidden}
+.hero-bg{position:absolute;inset:0;z-index:0}
+.hero-bg img{width:100%;height:100%;object-fit:cover;display:block;filter:brightness(.35)}
+.hero-bg::after{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(105deg,rgba(12,11,9,.88) 40%,rgba(201,150,42,.1) 100%);
+}
+.hero-content{position:relative;z-index:2;padding:7rem 5% 5rem;max-width:860px;width:100%}
+.hero-tag{
+  display:inline-flex;align-items:center;gap:.6rem;
+  font-size:.7rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--gold2);margin-bottom:1.8rem;
+  opacity:0;animation:fadeUp .8s .1s forwards;
+}
+.hero-tag::before{content:'';width:28px;height:1.5px;background:var(--gold2);display:block}
+.hero-h1{
+  font-family:var(--syne);
+  font-size:clamp(1.9rem,5vw,5.5rem);
+  font-weight:800;line-height:1.05;letter-spacing:-.02em;
+  color:var(--white);margin-bottom:1.8rem;
+  opacity:0;animation:fadeUp .8s .25s forwards;
+}
+.hero-h1 .accent{font-family:var(--lora);font-style:italic;font-weight:400;color:var(--gold2)}
+.hero-desc{
+  font-family:var(--lora);font-size:clamp(.92rem,2.5vw,1.2rem);
+  font-weight:400;line-height:1.8;color:rgba(255,255,255,.65);
+  max-width:52ch;margin-bottom:3rem;
+  opacity:0;animation:fadeUp .8s .4s forwards;
+}
+.hero-actions{
+  display:flex;gap:1rem;align-items:center;flex-wrap:wrap;
+  opacity:0;animation:fadeUp .8s .55s forwards;
+}
+.btn-gold{
+  font-size:.82rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
+  background:var(--gold);color:var(--ink);padding:.95rem 2.4rem;
+  text-decoration:none;transition:background .2s,transform .15s;display:inline-block;
+}
+.btn-gold:hover{background:var(--gold2);transform:translateY(-1px)}
+.btn-ghost{
+  font-size:.82rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;
+  color:rgba(255,255,255,.6);text-decoration:none;
+  border-bottom:1px solid rgba(255,255,255,.3);padding-bottom:2px;
+  transition:color .2s,border-color .2s;
+}
+.btn-ghost:hover{color:var(--gold2);border-color:var(--gold2)}
+.hero-roi-card{
+  position:absolute;right:5%;bottom:3rem;z-index:2;
+  background:rgba(12,11,9,.88);border:1px solid rgba(201,150,42,.3);
+  padding:1.6rem 2rem;backdrop-filter:blur(12px);
+  opacity:0;animation:fadeIn 1s .9s forwards;
+}
+.hero-roi-label{font-size:.68rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--gold2);margin-bottom:.5rem}
+.hero-roi-num{font-family:var(--syne);font-size:3rem;font-weight:800;color:var(--white);line-height:1}
+.hero-roi-sub{font-size:.75rem;color:rgba(255,255,255,.35);margin-top:.35rem}
+
+/* ─── ROI STRIP ─── */
+.roi-strip{
+  display:grid;grid-template-columns:repeat(4,1fr);
+  border-top:1px solid rgba(201,150,42,.2);
+  border-bottom:1px solid rgba(201,150,42,.2);
+}
+.roi-item{
+  padding:3rem 2rem;border-right:1px solid rgba(201,150,42,.1);
+  text-align:center;background:var(--ink);transition:background .3s;
+}
+.roi-item:hover{background:rgba(201,150,42,.06)}
+.roi-item:last-child{border-right:none}
+.roi-num{
+  font-family:var(--syne);font-size:clamp(2.2rem,3.5vw,4rem);
+  font-weight:800;letter-spacing:-.02em;color:var(--gold2);line-height:1;margin-bottom:.5rem;
+}
+.roi-desc{font-size:.8rem;font-weight:400;color:rgba(255,255,255,.38);line-height:1.5;max-width:16ch;margin:0 auto}
+
+/* ─── SHARED TAG ─── */
+.tag{font-size:.7rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin-bottom:1.4rem;display:block}
+.tag-light{color:var(--gold2)}
+
+/* ─── MANIFESTO ─── */
+.manifesto{padding:8rem 5%;display:grid;grid-template-columns:1fr 1fr;gap:7rem;align-items:center;background:var(--cream)}
+.manifesto-left h2{
+  font-family:var(--syne);font-size:clamp(1.9rem,3vw,3.4rem);
+  font-weight:800;line-height:1.1;letter-spacing:-.02em;color:var(--ink);margin-bottom:1.8rem;
+}
+.manifesto-left h2 em{font-family:var(--lora);font-style:italic;font-weight:400;color:var(--gold)}
+.manifesto-left p{font-family:var(--lora);font-size:1rem;color:var(--ink2);line-height:1.85;margin-bottom:1.4rem;max-width:46ch}
+.manifesto-right{display:flex;flex-direction:column}
+.pillar{padding:1.8rem 0;border-bottom:1px solid rgba(12,11,9,.08);display:grid;grid-template-columns:auto 1fr;gap:1.4rem;align-items:start}
+.pillar:first-child{border-top:1px solid rgba(12,11,9,.08)}
+.pillar-icon{width:42px;height:42px;background:var(--ink);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.pillar-icon svg{width:20px;height:20px;fill:var(--gold2)}
+.pillar-title{font-size:.95rem;font-weight:700;color:var(--ink);margin-bottom:.25rem;letter-spacing:-.01em}
+.pillar-desc{font-family:var(--lora);font-size:.88rem;color:var(--ink2);line-height:1.7}
+
+/* ─── AI SECTION ─── */
+.ai-section{padding:8rem 5%;background:var(--ink);display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center}
+.ai-content h2{font-family:var(--syne);font-size:clamp(1.9rem,3vw,3.4rem);font-weight:800;line-height:1.1;letter-spacing:-.02em;color:var(--white);margin-bottom:1.4rem}
+.ai-content h2 em{font-family:var(--lora);font-style:italic;font-weight:400;color:var(--gold2)}
+.ai-content p{font-family:var(--lora);font-size:1rem;color:rgba(255,255,255,.55);line-height:1.85;margin-bottom:1.8rem}
+.ai-features{display:flex;flex-direction:column;gap:.7rem;margin-bottom:2.2rem}
+.ai-feat{display:flex;align-items:center;gap:.9rem;font-size:.88rem;font-weight:500;color:rgba(255,255,255,.75)}
+.ai-feat::before{content:'';width:8px;height:8px;background:var(--gold2);flex-shrink:0}
+.ai-dashboard{background:rgba(255,255,255,.04);border:1px solid rgba(201,150,42,.2);padding:1.8rem}
+.dash-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:1.4rem}
+.dash-title{font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.35)}
+.dash-badge{font-size:.65rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;background:rgba(201,150,42,.15);color:var(--gold2);padding:.3rem .8rem}
+.dash-metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;margin-bottom:1.4rem}
+.dash-metric{background:rgba(255,255,255,.03);padding:1.1rem;text-align:center}
+.dash-metric-num{font-family:var(--syne);font-size:1.5rem;font-weight:800;color:var(--white);line-height:1;margin-bottom:.25rem}
+.dash-metric-num.up{color:var(--gold2)}
+.dash-metric-label{font-size:.62rem;color:rgba(255,255,255,.28);letter-spacing:.06em;text-transform:uppercase}
+.dash-chart{height:140px;position:relative}
+
+/* ─── ROI CALC ─── */
+.roi-calc{padding:8rem 5%;background:var(--cream)}
+.roi-calc-inner{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:start}
+.roi-calc-left h2{font-family:var(--syne);font-size:clamp(1.9rem,3vw,3.2rem);font-weight:800;letter-spacing:-.02em;line-height:1.1;color:var(--ink);margin-bottom:1.4rem}
+.roi-calc-left h2 em{font-family:var(--lora);font-style:italic;color:var(--gold)}
+.roi-calc-left p{font-family:var(--lora);font-size:1rem;color:var(--ink2);line-height:1.8}
+.calc-widget{background:var(--ink);padding:2.5rem}
+.calc-row{margin-bottom:1.6rem}
+.calc-label{font-size:.7rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.4);margin-bottom:.65rem;display:block}
+.calc-slider{width:100%;accent-color:var(--gold2);cursor:pointer}
+.calc-val{font-family:var(--syne);font-size:1.3rem;font-weight:800;color:var(--gold2);margin-top:.35rem;display:block}
+.calc-divider{height:1px;background:rgba(255,255,255,.06);margin:1.8rem 0}
+.calc-result{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem}
+.calc-result-label{font-size:.72rem;font-weight:600;color:rgba(255,255,255,.35);letter-spacing:.06em;text-transform:uppercase}
+.calc-result-num{font-family:var(--syne);font-size:2.6rem;font-weight:800;color:var(--gold2);line-height:1}
+.calc-note{font-size:.72rem;color:rgba(255,255,255,.22);margin-top:1rem;font-style:italic;font-family:var(--lora)}
+
+/* ─── SERVICES ─── */
+.services{padding:8rem 5%;background:var(--ink2)}
+.services-head{margin-bottom:4rem}
+.services-head h2{font-family:var(--syne);font-size:clamp(1.9rem,3vw,3.4rem);font-weight:800;letter-spacing:-.02em;line-height:1.1;color:var(--white)}
+.services-head h2 em{font-family:var(--lora);font-style:italic;font-weight:400;color:var(--gold2)}
+.services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px}
+.svc{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.05);padding:2.8rem 2.2rem;transition:border-color .25s,background .25s}
+.svc:hover{background:rgba(201,150,42,.06);border-color:rgba(201,150,42,.3)}
+.svc-num{font-family:var(--syne);font-size:2.8rem;font-weight:800;color:rgba(201,150,42,.18);line-height:1;margin-bottom:1.8rem;display:block;letter-spacing:-.02em;transition:color .25s}
+.svc:hover .svc-num{color:var(--gold2)}
+.svc-name{font-size:1.1rem;font-weight:700;color:var(--white);margin-bottom:.7rem;letter-spacing:-.01em}
+.svc-desc{font-family:var(--lora);font-size:.88rem;color:rgba(255,255,255,.42);line-height:1.8;margin-bottom:1.8rem}
+.svc-roi{font-size:.7rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--gold2);border-top:1px solid rgba(255,255,255,.06);padding-top:1.1rem}
+.svc-roi span{color:rgba(255,255,255,.28)}
+
+/* ─── PHOTO SPLIT ─── */
+.photo-split{display:grid;grid-template-columns:1fr 1fr}
+.photo-split-img{position:relative;overflow:hidden;min-height:480px}
+.photo-split-img img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .8s ease}
+.photo-split-img:hover img{transform:scale(1.04)}
+.photo-split-content{background:var(--gold);padding:5rem 4rem;display:flex;flex-direction:column;justify-content:center}
+.photo-split-content h2{font-family:var(--syne);font-size:clamp(1.7rem,3vw,2.8rem);font-weight:800;letter-spacing:-.02em;line-height:1.1;color:var(--ink);margin-bottom:1.4rem}
+.photo-split-content p{font-family:var(--lora);font-size:1rem;color:rgba(12,11,9,.7);line-height:1.8;margin-bottom:1.8rem}
+.btn-dark{font-size:.78rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;background:var(--ink);color:var(--white);padding:.85rem 1.8rem;text-decoration:none;display:inline-block;width:fit-content;transition:background .2s}
+.btn-dark:hover{background:var(--ink2)}
+
+/* ─── PROCESO ─── */
+.proceso{padding:8rem 5%;background:var(--cream)}
+.proceso h2{font-family:var(--syne);font-size:clamp(1.9rem,3vw,3.4rem);font-weight:800;letter-spacing:-.02em;line-height:1.1;color:var(--ink);margin-bottom:4rem}
+.proceso h2 em{font-family:var(--lora);font-style:italic;color:var(--gold)}
+.proceso-steps{display:grid;grid-template-columns:repeat(4,1fr);gap:2.5rem}
+.paso{position:relative}
+.paso::before{content:'';position:absolute;top:1.5rem;right:-1.25rem;width:2.5rem;height:1px;background:rgba(12,11,9,.1)}
+.paso:last-child::before{display:none}
+.paso-n{font-family:var(--syne);font-size:3.5rem;font-weight:800;color:var(--cream2);line-height:1;margin-bottom:1.2rem;letter-spacing:-.04em}
+.paso-title{font-size:.95rem;font-weight:700;color:var(--ink);margin-bottom:.5rem;letter-spacing:-.01em}
+.paso-desc{font-family:var(--lora);font-size:.86rem;color:var(--ink2);line-height:1.75}
+.paso-time{margin-top:.9rem;font-size:.68rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--gold)}
+
+/* ─── BLOG ─── */
+.blog{padding:8rem 5%;background:var(--ink)}
+.blog-header{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:4rem;flex-wrap:wrap;gap:1.5rem}
+.blog h2{font-family:var(--syne);font-size:clamp(1.9rem,3vw,3.4rem);font-weight:800;letter-spacing:-.02em;line-height:1.1;color:var(--white)}
+.blog h2 em{font-family:var(--lora);font-style:italic;font-weight:400;color:var(--gold2)}
+.blog-ver-mas{font-size:.75rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--gold2);text-decoration:none;border-bottom:1px solid rgba(201,150,42,.35);padding-bottom:2px;transition:color .2s;white-space:nowrap}
+.blog-ver-mas:hover{color:var(--white)}
+.blog-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px}
 .blog-card{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.05);overflow:hidden;transition:border-color .25s;display:flex;flex-direction:column}
 .blog-card:hover{border-color:rgba(201,150,42,.3)}
-.blog-card-img{width:100%;aspect-ratio:16/9;object-fit:cover;display:block;transition:transform .6s;filter:brightness(.85)}
+.blog-card-img{width:100%;aspect-ratio:16/9;object-fit:cover;display:block;transition:transform .6s ease;filter:brightness(.85)}
 .blog-card:hover .blog-card-img{transform:scale(1.04);filter:brightness(1)}
 .blog-card-body{padding:1.8rem;flex:1;display:flex;flex-direction:column}
 .blog-card-tag{font-size:.65rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--gold2);margin-bottom:.7rem;display:block}
-.blog-card-title{font-family:var(--syne);font-size:1rem;font-weight:700;color:#fff;line-height:1.3;margin-bottom:.7rem;letter-spacing:-.01em}
+.blog-card-title{font-family:var(--syne);font-size:1rem;font-weight:700;color:var(--white);line-height:1.3;margin-bottom:.7rem;letter-spacing:-.01em}
 .blog-card-excerpt{font-family:var(--lora);font-size:.86rem;color:rgba(255,255,255,.4);line-height:1.75;flex:1;margin-bottom:1.4rem}
 .blog-card-meta{display:flex;justify-content:space-between;align-items:center;border-top:1px solid rgba(255,255,255,.05);padding-top:.9rem}
 .blog-card-date{font-size:.68rem;color:rgba(255,255,255,.25);letter-spacing:.06em}
 .blog-card-read{font-size:.68rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--gold2);text-decoration:none;transition:color .2s}
-.blog-card-read:hover{color:#fff}
-.newsletter{background:rgba(201,150,42,.08);border:1px solid rgba(201,150,42,.2);padding:3.5rem;text-align:center;margin-top:5rem}
-.newsletter h3{font-family:var(--syne);font-size:1.6rem;font-weight:800;color:#fff;margin-bottom:.7rem;letter-spacing:-.02em}
-.newsletter h3 em{font-family:var(--lora);font-style:italic;font-weight:400;color:var(--gold2)}
-.newsletter p{font-family:var(--lora);font-size:.95rem;color:rgba(255,255,255,.45);margin-bottom:2rem}
-.newsletter-form{display:flex;max-width:420px;margin:0 auto}
-.newsletter-input{flex:1;font-family:var(--syne);font-size:.86rem;background:rgba(255,255,255,.07);color:#fff;border:1.5px solid rgba(201,150,42,.28);border-right:none;padding:.9rem 1.2rem;outline:none;transition:border-color .2s}
-.newsletter-input::placeholder{color:rgba(255,255,255,.2)}
-.newsletter-input:focus{border-color:var(--gold2)}
-.newsletter-btn{font-family:var(--syne);font-size:.75rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;background:var(--gold);color:var(--ink);border:none;padding:.9rem 1.6rem;cursor:pointer;transition:background .2s;white-space:nowrap}
-.newsletter-btn:hover{background:var(--gold2)}
+.blog-card-read:hover{color:var(--white)}
+
+/* ─── MERCADOS ─── */
+.mercados{padding:3.5rem 5%;background:var(--ink);border-top:1px solid rgba(201,150,42,.1);overflow:hidden;width:100%}
+.mercados-label{font-size:.68rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.2);margin-bottom:1.5rem;display:block}
+.mercados-row{display:flex;flex-wrap:wrap;gap:7px;width:100%}
+.pill{font-size:.76rem;font-weight:500;letter-spacing:.04em;color:rgba(255,255,255,.35);border:1px solid rgba(255,255,255,.09);padding:.45rem 1.1rem;transition:all .2s;cursor:default}
+.pill:hover{color:var(--gold2);border-color:rgba(201,150,42,.35);background:rgba(201,150,42,.05)}
+
+/* ─── CTA ─── */
+.cta{min-height:70vh;position:relative;display:flex;align-items:center;overflow:hidden}
+.cta-bg{position:absolute;inset:0}
+.cta-bg img{width:100%;height:100%;object-fit:cover;filter:brightness(.25)}
+.cta-bg::after{content:'';position:absolute;inset:0;background:linear-gradient(to right,rgba(12,11,9,.92) 50%,rgba(201,150,42,.07) 100%)}
+.cta-content{position:relative;z-index:2;padding:6rem 5%;max-width:640px;width:100%}
+.cta-tag{font-size:.7rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--gold2);margin-bottom:1.4rem;display:flex;align-items:center;gap:.6rem}
+.cta-tag::before{content:'';width:24px;height:1.5px;background:var(--gold2)}
+.cta h2{font-family:var(--syne);font-size:clamp(1.8rem,4vw,4rem);font-weight:800;letter-spacing:-.02em;line-height:1.05;color:var(--white);margin-bottom:1.4rem}
+.cta h2 em{font-family:var(--lora);font-style:italic;font-weight:400;color:var(--gold2)}
+.cta p{font-family:var(--lora);font-size:1rem;color:rgba(255,255,255,.5);line-height:1.8;margin-bottom:2.5rem}
+.cta-form{display:flex;max-width:460px;gap:0}
+.cta-input{flex:1;font-family:var(--syne);font-size:.86rem;font-weight:500;background:rgba(255,255,255,.07);color:var(--white);border:1.5px solid rgba(201,150,42,.28);border-right:none;padding:.95rem 1.4rem;outline:none;transition:border-color .2s}
+.cta-input::placeholder{color:rgba(255,255,255,.22)}
+.cta-input:focus{border-color:var(--gold2)}
+.cta-submit{font-family:var(--syne);font-size:.75rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;background:var(--gold);color:var(--ink);border:none;padding:.95rem 1.8rem;cursor:pointer;transition:background .2s;white-space:nowrap}
+.cta-submit:hover{background:var(--gold2)}
+.cta-promise{margin-top:1rem;font-size:.75rem;color:rgba(255,255,255,.22);font-family:var(--lora);font-style:italic}
+
+/* ─── FOOTER ─── */
 footer{padding:1.6rem 5%;background:rgba(0,0,0,.4);border-top:1px solid rgba(201,150,42,.08);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem}
 .footer-copy{font-size:.73rem;color:rgba(255,255,255,.22);letter-spacing:.04em}
 .footer-links{display:flex;gap:1.8rem;list-style:none}
 .footer-links a{font-size:.73rem;color:rgba(255,255,255,.22);text-decoration:none;transition:color .2s}
 .footer-links a:hover{color:var(--gold2)}
-.reveal{opacity:0;transform:translateY(22px);transition:opacity .7s,transform .7s}
+
+/* ─── REVEAL ─── */
+.reveal{opacity:0;transform:translateY(26px);transition:opacity .75s ease,transform .75s ease}
 .reveal.visible{opacity:1;transform:translateY(0)}
-.empty{text-align:center;padding:6rem 2rem}
-.empty p{font-family:var(--lora);font-style:italic;font-size:1.1rem;color:rgba(255,255,255,.3)}
+.reveal-delay-1{transition-delay:.1s}.reveal-delay-2{transition-delay:.2s}.reveal-delay-3{transition-delay:.3s}
+
+/* ─── KEYFRAMES ─── */
+@keyframes fadeUp{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+
+/* ═══════════════════════════════════
+   RESPONSIVE
+═══════════════════════════════════ */
 @media(max-width:960px){
   .nav-links,.nav-cta{display:none}
   .nav-hamburger{display:flex}
-  .blog-card-featured{grid-template-columns:1fr}
-  .feat-img{min-height:50vw}
-  .feat-body{padding:2.5rem 2rem}
-  .blog-grid{grid-template-columns:1fr 1fr}
+  .hero-roi-card{display:none}
+  .roi-strip{grid-template-columns:1fr 1fr}
+  .manifesto,.ai-section,.roi-calc-inner,.photo-split{grid-template-columns:1fr}
+  .manifesto{padding:5rem 4%;gap:4rem}
+  .ai-section{padding:5rem 4%;gap:3rem}
+  .photo-split-img{min-height:55vw;order:1}.photo-split-content{order:2;padding:3.5rem 4%}
+  .services{padding:5rem 4%}.services-grid{grid-template-columns:1fr}
+  .proceso{padding:5rem 4%}.proceso-steps{grid-template-columns:1fr 1fr;gap:2rem}.paso::before{display:none}
+  .blog{padding:5rem 4%}.blog-grid{grid-template-columns:1fr 1fr}
+  .roi-calc{padding:5rem 4%}.roi-calc-inner{gap:3rem}
+  .cta-form{flex-direction:column}.cta-input{border-right:1.5px solid rgba(201,150,42,.28);border-bottom:none}
   footer{flex-direction:column;text-align:center}
 }
 @media(max-width:640px){
-  .blog-hero{padding:8rem 4% 4rem}
-  .filters{padding:1.5rem 4%}
-  .blog-main{padding:3.5rem 4% 5rem}
-  .blog-grid{grid-template-columns:1fr}
-  .newsletter-form{flex-direction:column}
-  .newsletter-input{border-right:1.5px solid rgba(201,150,42,.28);border-bottom:none}
+  .hero-content{padding:6rem 4% 4rem}
+  .hero-h1{font-size:clamp(1.75rem,8vw,2.6rem);line-height:1.08}
+  .hero-desc{font-size:.92rem;max-width:100%}
+  .hero-actions{flex-direction:column;align-items:stretch}
+  .btn-gold,.btn-ghost{text-align:center;padding:.9rem 1rem}
+  .roi-strip{grid-template-columns:1fr 1fr}
+  .roi-item{padding:1.8rem 1rem}.roi-num{font-size:2rem}
+  .manifesto{padding:4rem 4%;gap:2.5rem}
+  .manifesto-left p{max-width:100%}
+  .ai-section{padding:4rem 4%}.ai-dashboard{padding:1.4rem}
+  .roi-calc{padding:4rem 4%}.calc-widget{padding:1.8rem}
+  .calc-result{flex-direction:column;gap:.6rem}.calc-result-num{font-size:2.2rem}
+  .services{padding:4rem 4%}.svc{padding:2rem 1.6rem}
+  .photo-split-content{padding:3rem 4%}
+  .proceso{padding:4rem 4%}.proceso-steps{grid-template-columns:1fr;gap:0}
+  .paso{padding:1.8rem 0;border-bottom:1px solid rgba(12,11,9,.07)}
+  .blog{padding:4rem 4%}.blog-grid{grid-template-columns:1fr}.blog-header{flex-direction:column;align-items:flex-start;gap:1rem}
+  .mercados{padding:3rem 4%}
+  .cta{min-height:auto}.cta-content{padding:5rem 4%}
+  footer{padding:1.4rem 4%}
+}
+@media(max-width:420px){
+  .hero-h1{font-size:1.65rem}
+  .roi-strip{grid-template-columns:1fr}
+  .roi-item{border-right:none!important;border-bottom:1px solid rgba(201,150,42,.1)}
 }
 </style>
 </head>
 <body>
 
+<!-- MOBILE MENU -->
 <div class="mobile-menu" id="mobileMenu">
-  <a href="/" onclick="closeMobile()">Inicio</a>
-  <a href="/#roi" onclick="closeMobile()">Calculadora ROI</a>
-  <a href="/#servicios" onclick="closeMobile()">Servicios</a>
+  <a href="#servicios" onclick="closeMobile()">Servicios</a>
   <a href="/blog" onclick="closeMobile()">Blog</a>
-  <a href="/#contacto" class="mob-cta" onclick="closeMobile()">Calcular mi ROI</a>
+  <a href="#proceso" onclick="closeMobile()">Proceso</a>
+  <a href="#roi" class="mob-cta" onclick="closeMobile()">Calcular mi ROI</a>
 </div>
 
+<!-- NAV -->
 <nav>
-  <a href="/" class="nav-logo"><img src="/logo-dark.png" alt="Strata Revenue Intelligence"><span class="nav-brand">Strata<br>Revenue Intelligence</span></a>
+  <a href="/" class="nav-logo">
+    <img src="logo-dark.png" alt="Strata Revenue Intelligence">
+    <div class="nav-logo-text">
+      <span class="nav-logo-name">Strata</span>
+      <span class="nav-logo-sub">Revenue Intelligence</span>
+    </div>
+  </a>
   <ul class="nav-links">
-    <li><a href="/#servicios">Servicios</a></li>
-    <li><a href="/blog" class="active">Blog</a></li>
-    <li><a href="/#proceso">Proceso</a></li>
+    <li><a href="#servicios">Servicios</a></li>
+    <li><a href="/blog">Blog</a></li>
+    <li><a href="#proceso">Proceso</a></li>
   </ul>
-  <a href="/#contacto" class="nav-cta">Calcular mi ROI</a>
+  <a href="#roi" class="nav-cta">Calcular mi ROI</a>
   <button class="nav-hamburger" id="hamburger" aria-label="Abrir menú">
     <span></span><span></span><span></span>
   </button>
 </nav>
 
-<div class="blog-hero">
-  <div class="blog-hero-inner">
-    <div class="blog-hero-tag">Strata Revenue Intelligence</div>
-    <h1>Insights de<br><em>revenue hotelero.</em></h1>
-    <p>Estrategia, datos e inteligencia artificial aplicados a hoteles boutique, haciendas y propiedades rurales en LATAM. Sin teoría vacía — solo lo que realmente funciona.</p>
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg">
+    <img src="https://images.unsplash.com/photo-1596436889106-be35e843f974?w=1800&q=90&auto=format&fit=crop" alt="Hotel boutique luxury">
   </div>
-</div>
-
-<div class="filters">
-  <span class="filter-label">Filtrar:</span>
-  <button class="filter-btn active" onclick="filterPosts('all',this)">Todos</button>
-  <button class="filter-btn" onclick="filterPosts('Pricing · Revenue',this)">Pricing</button>
-  <button class="filter-btn" onclick="filterPosts('Distribución · OTAs',this)">OTAs</button>
-  <button class="filter-btn" onclick="filterPosts('IA · Data',this)">IA · Data</button>
-  <button class="filter-btn" onclick="filterPosts('Marketing Hotelero',this)">Marketing</button>
-  <button class="filter-btn" onclick="filterPosts('Estrategia',this)">Estrategia</button>
-</div>
-
-<main class="blog-main">
-  <div id="blog-container"></div>
-  <div class="newsletter reveal">
-    <h3>Recibe insights de <em>revenue</em> cada semana.</h3>
-    <p>Sin spam. Solo estrategia práctica para hoteles independientes en LATAM.</p>
-    <div class="newsletter-form">
-      <input class="newsletter-input" type="email" id="nlEmail" placeholder="correo@tuhotel.com" required>
-      <button class="newsletter-btn" id="nlBtn" onclick="submitNewsletter()">Suscribirme</button>
+  <div class="hero-content">
+    <div class="hero-tag">Revenue Intelligence · Powered by Data &amp; AI</div>
+    <h1 class="hero-h1">Cada decisión de precio<br>respaldada por <span class="accent">datos e inteligencia.</span></h1>
+    <p class="hero-desc">Combino análisis de datos avanzado, inteligencia artificial y estrategia probada para que tu hotel independiente maximice su rentabilidad — sin depender de OTAs ni dejar dinero sobre la mesa.</p>
+    <div class="hero-actions">
+      <a href="#roi" class="btn-gold">Calcular mi ROI</a>
+      <a href="#tecnologia" class="btn-ghost">Ver cómo funciona</a>
     </div>
-    <p id="nlMsg" style="display:none;margin-top:1rem;font-size:.85rem;font-family:var(--lora);font-style:italic;color:var(--gold2)"></p>
   </div>
-</main>
+  <div class="hero-roi-card">
+    <div class="hero-roi-label">ROI promedio primer año</div>
+    <div class="hero-roi-num">8.4×</div>
+    <div class="hero-roi-sub">retorno sobre la inversión en consultoría</div>
+  </div>
+</section>
 
+<!-- ROI STRIP -->
+<div class="roi-strip reveal">
+  <div class="roi-item"><div class="roi-num">8.4×</div><div class="roi-desc">ROI promedio primer año</div></div>
+  <div class="roi-item"><div class="roi-num">+28%</div><div class="roi-desc">Mejora en RevPAR en 90 días</div></div>
+  <div class="roi-item"><div class="roi-num">-18%</div><div class="roi-desc">Reducción en comisiones OTA</div></div>
+  <div class="roi-item"><div class="roi-num">+40%</div><div class="roi-desc">Reservas directas en 6 meses</div></div>
+</div>
+
+<!-- MANIFESTO -->
+<section class="manifesto">
+  <div class="manifesto-left reveal">
+    <span class="tag">La diferencia Strata</span>
+    <h2>No es solo pricing.<br>Es <em>inteligencia</em> aplicada.</h2>
+    <p>La mayoría de los hoteles boutique toman decisiones de precio basadas en intuición, en lo que hace la competencia, o en lo que Booking.com sugiere. Eso deja entre un 20% y 35% de ingresos potenciales sin capturar.</p>
+    <p>En Strata, cada ajuste de tarifa está respaldado por modelos de datos, análisis de demanda y aprendizaje continuo. Tu hotel compite con la misma inteligencia que las grandes cadenas — sin el costo de un equipo interno.</p>
+  </div>
+  <div class="manifesto-right reveal reveal-delay-2">
+    <div class="pillar">
+      <div class="pillar-icon"><svg viewBox="0 0 24 24"><path d="M3 3h18v18H3V3zm2 2v14h14V5H5zm2 10l3-4 3 3 3-5 2 3V15H7z"/></svg></div>
+      <div><p class="pillar-title">Análisis predictivo de demanda</p><p class="pillar-desc">Modelos que anticipan picos y valles semanas antes, permitiendo ajustes proactivos en lugar de reactivos.</p></div>
+    </div>
+    <div class="pillar">
+      <div class="pillar-icon"><svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 110 20A10 10 0 0112 2zm0 2a8 8 0 100 16A8 8 0 0012 4zm0 3l1.5 3.5L17 11l-2.5 2.5.5 3.5L12 15.5 9 17l.5-3.5L7 11l3.5-.5L12 7z"/></svg></div>
+      <div><p class="pillar-title">Pricing dinámico con IA</p><p class="pillar-desc">Algoritmos que procesan competencia, eventos locales e histórico de reservas para recomendar la tarifa óptima en cada momento.</p></div>
+    </div>
+    <div class="pillar">
+      <div class="pillar-icon"><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
+      <div><p class="pillar-title">Optimización de canales</p><p class="pillar-desc">Análisis del costo real por reserva en cada canal para priorizar los más rentables y reducir la dependencia de OTAs.</p></div>
+    </div>
+    <div class="pillar">
+      <div class="pillar-icon"><svg viewBox="0 0 24 24"><path d="M9 17H5a2 2 0 010-4h4m6 4h4a2 2 0 000-4h-4m-6 0h6M9 7H5a2 2 0 000 4h4m6-4h4a2 2 0 010 4h-4m-6 0h6"/></svg></div>
+      <div><p class="pillar-title">Reporting en tiempo real</p><p class="pillar-desc">Dashboard personalizado con KPIs críticos: RevPAR, ADR, ocupación por canal y comparativa vs. competencia.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- AI SECTION -->
+<section class="ai-section" id="tecnologia">
+  <div class="ai-content reveal">
+    <span class="tag tag-light">Tecnología + estrategia</span>
+    <h2>IA que trabaja para<br><em>tu rentabilidad</em><br>24/7.</h2>
+    <p>Proceso y analizo datos de múltiples fuentes — tu PMS, OTAs, competencia, eventos regionales, tendencias de búsqueda — para construir una estrategia de precios que maximiza el ingreso en cada habitación disponible.</p>
+    <div class="ai-features">
+      <div class="ai-feat">Monitoreo de tarifas de competencia en tiempo real</div>
+      <div class="ai-feat">Detección automática de eventos y picos de demanda</div>
+      <div class="ai-feat">Modelos de elasticidad precio-demanda por temporada</div>
+      <div class="ai-feat">Alertas de oportunidad y recomendaciones semanales</div>
+      <div class="ai-feat">Integración con Cloudbeds, Little Hotelier, Opera y más</div>
+    </div>
+  </div>
+  <div class="ai-dashboard reveal reveal-delay-2">
+    <div class="dash-header">
+      <span class="dash-title">Strata Dashboard · En vivo</span>
+      <span class="dash-badge">● Live</span>
+    </div>
+    <div class="dash-metrics">
+      <div class="dash-metric"><div class="dash-metric-num up">$142</div><div class="dash-metric-label">ADR hoy</div></div>
+      <div class="dash-metric"><div class="dash-metric-num up">$98</div><div class="dash-metric-label">RevPAR</div></div>
+      <div class="dash-metric"><div class="dash-metric-num">69%</div><div class="dash-metric-label">Ocupación</div></div>
+    </div>
+    <div class="dash-chart"><canvas id="dashChart"></canvas></div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:1px;margin-top:1px">
+      <div style="background:rgba(255,255,255,.03);padding:.9rem;text-align:center">
+        <div style="font-size:.6rem;color:rgba(255,255,255,.22);letter-spacing:.08em;text-transform:uppercase;margin-bottom:.35rem">vs. hace 30 días</div>
+        <div style="font-family:var(--syne);font-size:1.15rem;font-weight:800;color:#4ade80">+22%</div>
+      </div>
+      <div style="background:rgba(255,255,255,.03);padding:.9rem;text-align:center">
+        <div style="font-size:.6rem;color:rgba(255,255,255,.22);letter-spacing:.08em;text-transform:uppercase;margin-bottom:.35rem">vs. año anterior</div>
+        <div style="font-family:var(--syne);font-size:1.15rem;font-weight:800;color:var(--gold2)">+31%</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ROI CALCULATOR -->
+<section class="roi-calc" id="roi">
+  <div class="roi-calc-inner">
+    <div class="roi-calc-left reveal">
+      <span class="tag">Calculadora de ROI</span>
+      <h2>Descubre cuánto<br>dinero está<br><em>dejando ir</em> tu hotel.</h2>
+      <p>El 90% de los hoteles independientes subestiman cuánto RevPAR están perdiendo por no tener una estrategia de revenue management activa.</p>
+      <div style="margin-top:2rem;padding:1.5rem;background:var(--cream2);border-left:4px solid var(--gold)">
+        <p style="font-size:.88rem;font-family:var(--lora);color:var(--ink2);line-height:1.7"><strong style="font-family:var(--syne);font-size:.9rem">Caso típico:</strong> hotel boutique de 20 habitaciones en Mérida con ADR de $120 USD. Con revenue management activo su RevPAR pasó de $68 a $91 en 5 meses — <strong>$185,000 USD de ingreso adicional al año.</strong></p>
+      </div>
+    </div>
+    <div class="reveal reveal-delay-1">
+      <div class="calc-widget">
+        <div class="calc-row">
+          <span class="calc-label">Número de habitaciones</span>
+          <input type="range" class="calc-slider" id="rooms" min="5" max="60" value="20" step="1" oninput="calcROI()">
+          <span class="calc-val" id="rooms-val">20 habitaciones</span>
+        </div>
+        <div class="calc-row">
+          <span class="calc-label">ADR actual (USD por noche)</span>
+          <input type="range" class="calc-slider" id="adr" min="50" max="400" value="120" step="5" oninput="calcROI()">
+          <span class="calc-val" id="adr-val">$120 USD</span>
+        </div>
+        <div class="calc-row">
+          <span class="calc-label">Ocupación promedio actual</span>
+          <input type="range" class="calc-slider" id="occ" min="30" max="85" value="62" step="1" oninput="calcROI()">
+          <span class="calc-val" id="occ-val">62%</span>
+        </div>
+        <div class="calc-divider"></div>
+        <div class="calc-result">
+          <div>
+            <div class="calc-result-label">Ingreso adicional / año</div>
+            <div class="calc-result-num" id="roi-result">$89,424</div>
+          </div>
+          <div style="text-align:right">
+            <div class="calc-result-label">ROI consultoría</div>
+            <div class="calc-result-num" id="roi-mult" style="color:var(--gold3)">10.5×</div>
+          </div>
+        </div>
+        <p class="calc-note">Estimación conservadora basada en mejora del 22% en RevPAR. Los resultados reales varían.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="services" id="servicios">
+  <div class="services-head reveal">
+    <span class="tag tag-light">Servicios</span>
+    <h2>Soluciones con<br>retorno <em>medible.</em></h2>
+  </div>
+  <div class="services-grid reveal">
+    <div class="svc">
+      <span class="svc-num">01</span>
+      <h3 class="svc-name">Auditoría de Revenue + Data</h3>
+      <p class="svc-desc">Diagnóstico completo: análisis de tarifas históricas, mix de canales, costo de adquisición y benchmarking. Entregable: las 5 acciones de mayor impacto en ROI.</p>
+      <div class="svc-roi"><span>Desde</span> $600 USD · pago único</div>
+    </div>
+    <div class="svc">
+      <span class="svc-num">02</span>
+      <h3 class="svc-name">Revenue Management Continuo</h3>
+      <p class="svc-desc">Gestión activa de tarifas con modelos de datos semanales, optimización de canales, dashboard en tiempo real y sesión mensual de revisión estratégica.</p>
+      <div class="svc-roi"><span>Desde</span> $700 USD / mes · mín. 3 meses</div>
+    </div>
+    <div class="svc">
+      <span class="svc-num">03</span>
+      <h3 class="svc-name">Revenue + Marketing 360°</h3>
+      <p class="svc-desc">Estrategia integral: revenue management + campañas digitales calibradas a demanda real con tracking de ROI por canal de marketing.</p>
+      <div class="svc-roi"><span>Desde</span> $1,200 USD / mes</div>
+    </div>
+  </div>
+</section>
+
+<!-- PHOTO SPLIT -->
+<div class="photo-split">
+  <div class="photo-split-img">
+    <img src="https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=1200&q=90&auto=format&fit=crop" alt="Hotel boutique interior luxury">
+  </div>
+  <div class="photo-split-content">
+    <h2>Hoteles que ya saben cuánto valen.</h2>
+    <p>Los hoteles boutique independientes en LATAM tienen uno de los productos más codiciados del mercado. Lo que les falta no es calidad — es la estrategia para cobrar lo que realmente merecen.</p>
+    <p>Con análisis de datos y pricing inteligente, transformamos esa brecha en rentabilidad real.</p>
+    <a href="#contacto" class="btn-dark">Hablar con un especialista</a>
+  </div>
+</div>
+
+<!-- PROCESO -->
+<section class="proceso" id="proceso">
+  <div class="reveal">
+    <span class="tag">Metodología</span>
+    <h2>De los datos a la<br><em>rentabilidad.</em></h2>
+  </div>
+  <div class="proceso-steps reveal">
+    <div class="paso">
+      <div class="paso-n">01</div>
+      <h3 class="paso-title">Data audit</h3>
+      <p class="paso-desc">Extraemos y analizamos tus datos históricos de PMS, OTAs y competencia para encontrar patrones y oportunidades que nadie más está viendo.</p>
+      <span class="paso-time">Semana 1</span>
+    </div>
+    <div class="paso">
+      <div class="paso-n">02</div>
+      <h3 class="paso-title">Modelo de pricing</h3>
+      <p class="paso-desc">Construimos tu modelo de precios dinámico: por temporada, segmento, canal y anticipación de reserva. Calibrado a tu propiedad específica.</p>
+      <span class="paso-time">Semanas 2–3</span>
+    </div>
+    <div class="paso">
+      <div class="paso-n">03</div>
+      <h3 class="paso-title">Deploy + monitoreo</h3>
+      <p class="paso-desc">Implementamos los cambios, activamos el dashboard en tiempo real y ajustamos semanalmente según el comportamiento del mercado.</p>
+      <span class="paso-time">Mes 1–3</span>
+    </div>
+    <div class="paso">
+      <div class="paso-n">04</div>
+      <h3 class="paso-title">Optimización continua</h3>
+      <p class="paso-desc">Los modelos aprenden con cada ciclo. Revisión mensual de KPIs, forecasting de temporadas y expansión de estrategia según resultados comprobados.</p>
+      <span class="paso-time">Mes 3+</span>
+    </div>
+  </div>
+</section>
+
+<!-- BLOG -->
+<section class="blog" id="blog">
+  <div class="blog-header reveal">
+    <div>
+      <span class="tag tag-light">Blog</span>
+      <h2>Insights de<br><em>revenue hotelero.</em></h2>
+    </div>
+    <a href="/blog" class="blog-ver-mas">Ver todos los artículos →</a>
+  </div>
+  <div class="blog-grid reveal">
+    <div class="blog-card">
+      <img class="blog-card-img" src="https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?w=800&q=80&auto=format&fit=crop" alt="Revenue management pricing">
+      <div class="blog-card-body">
+        <span class="blog-card-tag">Pricing · Revenue</span>
+        <h3 class="blog-card-title">Por qué el 90% de los hoteles boutique dejan RevPAR sobre la mesa</h3>
+        <p class="blog-card-excerpt">La mayoría de las propiedades fijan precios de forma reactiva. Los tres errores más comunes y cómo corregirlos con datos reales.</p>
+        <div class="blog-card-meta">
+          <span class="blog-card-date">15 Mar 2026 · 6 min</span>
+          <a href="/blog/article-revpar-hoteles-boutique/" class="blog-card-read">Leer →</a>
+        </div>
+      </div>
+    </div>
+    <div class="blog-card">
+      <img class="blog-card-img" src="https://images.unsplash.com/photo-1566073771259-6a8506099945?w=800&q=80&auto=format&fit=crop" alt="Hotel OTA distribución">
+      <div class="blog-card-body">
+        <span class="blog-card-tag">Distribución · OTAs</span>
+        <h3 class="blog-card-title">Cómo reducir tu dependencia de Booking.com sin perder ocupación</h3>
+        <p class="blog-card-excerpt">Reducir comisiones del 18-22% de OTAs es posible con una estrategia de canal inteligente. El paso a paso que uso con mis clientes en LATAM.</p>
+        <div class="blog-card-meta">
+          <span class="blog-card-date">28 Feb 2026 · 8 min</span>
+          <a href="/blog/article-reducir-dependencia-booking/" class="blog-card-read">Leer →</a>
+        </div>
+      </div>
+    </div>
+    <div class="blog-card">
+      <img class="blog-card-img" src="https://images.unsplash.com/photo-1444201983204-c43cbd584d93?w=800&q=80&auto=format&fit=crop" alt="Data analytics hotel">
+      <div class="blog-card-body">
+        <span class="blog-card-tag">IA · Data</span>
+        <h3 class="blog-card-title">IA en revenue management: qué funciona hoy para hoteles independientes</h3>
+        <p class="blog-card-excerpt">No necesitas un sistema de $50,000 USD al año. Las herramientas de IA accesibles que realmente mueven la aguja en propiedades de 10-60 habitaciones.</p>
+        <div class="blog-card-meta">
+          <span class="blog-card-date">10 Feb 2026 · 7 min</span>
+          <a href="/blog/article-ia-revenue-management/" class="blog-card-read">Leer →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MERCADOS -->
+<div class="mercados reveal">
+  <span class="mercados-label">Mercados activos</span>
+  <div class="mercados-row">
+    <span class="pill">México · Yucatán</span><span class="pill">México · Oaxaca</span>
+    <span class="pill">México · San Miguel de Allende</span><span class="pill">Colombia · Cartagena</span>
+    <span class="pill">Colombia · Eje Cafetero</span><span class="pill">Costa Rica</span>
+    <span class="pill">Perú · Cusco y Valle Sagrado</span><span class="pill">Argentina · Mendoza</span>
+    <span class="pill">Panamá</span>
+  </div>
+</div>
+
+<!-- CTA -->
+<section class="cta" id="contacto">
+  <div class="cta-bg">
+    <img src="https://images.unsplash.com/photo-1584132967334-10e028bd69f7?w=1800&q=90&auto=format&fit=crop" alt="Hotel infinity pool night">
+  </div>
+  <div class="cta-content reveal">
+    <div class="cta-tag">Empecemos</div>
+    <h2>¿Cuánto está dejando de ganar<br>tu hotel <em>hoy?</em></h2>
+    <p>Diagnóstico gratuito de 30 minutos. Analizamos tus datos, te decimos exactamente cuánto RevPAR estás dejando sobre la mesa y qué haríamos para capturarlo.</p>
+    <div class="cta-form">
+      <input class="cta-input" type="email" id="ctaEmail" placeholder="correo@tuhotel.com" required>
+      <button class="cta-submit" id="ctaBtn" onclick="submitCTA()">Agendar ahora</button>
+    </div>
+    <p class="cta-msg" id="ctaMsg" style="display:none;margin-top:1rem;font-size:.85rem;font-family:var(--lora);font-style:italic;color:var(--gold2)"></p>
+    <p class="cta-promise">Sin compromiso · Respuesta en menos de 24 horas · Confidencial</p>
+  </div>
+</section>
+
+<!-- FOOTER -->
 <footer>
   <span class="footer-copy">© 2026 Strata Revenue Intelligence</span>
   <ul class="footer-links">
-    <li><a href="https://www.linkedin.com/company/strata-revenue-intelligence" target="_blank">LinkedIn</a></li>
-    <li><a href="https://www.instagram.com/stratarevenue" target="_blank">Instagram</a></li>
-    <li><a href="#" target="_blank">Calendly</a></li>
+    <li><a href="https://www.linkedin.com/company/strata-revenue-intelligence" target="_blank" rel="noopener">LinkedIn</a></li>
+    <li><a href="#">WhatsApp</a></li>
+    <li><a href="#">Calendly</a></li>
   </ul>
 </footer>
 
 <script>
-const hamburger=document.getElementById('hamburger');
-const mobileMenu=document.getElementById('mobileMenu');
-hamburger.addEventListener('click',()=>{hamburger.classList.toggle('open');mobileMenu.classList.toggle('open');document.body.style.overflow=mobileMenu.classList.contains('open')?'hidden':''});
-function closeMobile(){hamburger.classList.remove('open');mobileMenu.classList.remove('open');document.body.style.overflow=''}
-
-const articles=[
-  {slug:"revpar-hoteles-boutique",title:"Por qué el 90% de los hoteles boutique dejan RevPAR sobre la mesa",date:"2026-03-15",dateFormatted:"15 Mar 2026",category:"Pricing · Revenue",read_time:"6 min",cover_image:"https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?w=1200&q=80&auto=format&fit=crop",excerpt:"La mayoría de las propiedades fijan precios de forma reactiva. Los tres errores más comunes y cómo corregirlos con datos reales."},
-  {slug:"reducir-dependencia-booking",title:"Cómo reducir tu dependencia de Booking.com sin perder ocupación",date:"2026-02-28",dateFormatted:"28 Feb 2026",category:"Distribución · OTAs",read_time:"8 min",cover_image:"https://images.unsplash.com/photo-1566073771259-6a8506099945?w=1200&q=80&auto=format&fit=crop",excerpt:"Reducir comisiones del 18-22% de OTAs es posible con una estrategia de canal inteligente. El paso a paso que uso con mis clientes en LATAM."},
-  {slug:"ia-revenue-management",title:"IA en revenue management: qué funciona hoy para hoteles independientes",date:"2026-02-10",dateFormatted:"10 Feb 2026",category:"IA · Data",read_time:"7 min",cover_image:"https://images.unsplash.com/photo-1444201983204-c43cbd584d93?w=1200&q=80&auto=format&fit=crop",excerpt:"No necesitas un sistema de $50,000 USD al año. Las herramientas de IA accesibles que realmente mueven la aguja en propiedades de 10-60 habitaciones."}
-];
-
-const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target)}})},{threshold:.06});
-document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
-
-function renderPosts(filter){
-  const list=filter==='all'?articles:articles.filter(a=>a.category===filter);
-  const c=document.getElementById('blog-container');
-  if(!list.length){c.innerHTML='<div class="empty"><p>No hay artículos en esta categoría todavía.</p></div>';return}
-  let h='';
-  list.forEach((a,i)=>{
-    if(i===0){
-      h+=`<div class="blog-card-featured reveal" data-cat="${a.category}"><div class="feat-img"><img src="${a.cover_image}" alt="${a.title}" loading="lazy"></div><div class="feat-body"><span class="feat-tag">${a.category}</span><h2 class="feat-title">${a.title}</h2><p class="feat-excerpt">${a.excerpt}</p><div class="feat-meta"><span class="feat-date">${a.dateFormatted} · ${a.read_time}</span><a class="feat-read" href="/article-${a.slug}">Leer artículo →</a></div></div></div>`;
-      if(list.length>1) h+='<div class="blog-grid">';
-    } else {
-      h+=`<div class="blog-card reveal" data-cat="${a.category}"><img class="blog-card-img" src="${a.cover_image}" alt="${a.title}" loading="lazy"><div class="blog-card-body"><span class="blog-card-tag">${a.category}</span><h3 class="blog-card-title">${a.title}</h3><p class="blog-card-excerpt">${a.excerpt}</p><div class="blog-card-meta"><span class="blog-card-date">${a.dateFormatted} · ${a.read_time}</span><a class="blog-card-read" href="/article-${a.slug}">Leer →</a></div></div></div>`;
-    }
-  });
-  if(list.length>1) h+='</div>';
-  c.innerHTML=h;
-  setTimeout(()=>{document.querySelectorAll('.reveal:not(.visible)').forEach(el=>obs.observe(el))},50);
+/* ── HAMBURGER ── */
+const hamburger = document.getElementById('hamburger');
+const mobileMenu = document.getElementById('mobileMenu');
+hamburger.addEventListener('click', () => {
+  hamburger.classList.toggle('open');
+  mobileMenu.classList.toggle('open');
+  document.body.style.overflow = mobileMenu.classList.contains('open') ? 'hidden' : '';
+});
+function closeMobile(){
+  hamburger.classList.remove('open');
+  mobileMenu.classList.remove('open');
+  document.body.style.overflow = '';
 }
 
-function filterPosts(filter,btn){
-  document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
-  btn.classList.add('active');
-  renderPosts(filter);
-}
+/* ── REVEAL ── */
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('visible'); obs.unobserve(e.target); }});
+}, {threshold: 0.06});
+document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
 
-renderPosts('all');
-
-async function submitNewsletter(){
-  const emailInput = document.getElementById('nlEmail');
-  const btn = document.getElementById('nlBtn');
-  const msg = document.getElementById('nlMsg');
+/* ── CTA FORM ── */
+async function submitCTA(){
+  const emailInput = document.getElementById('ctaEmail');
+  const btn = document.getElementById('ctaBtn');
+  const msg = document.getElementById('ctaMsg');
   const email = emailInput.value.trim();
   if(!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){
     msg.textContent = 'Por favor ingresa un correo válido.';
@@ -234,10 +738,10 @@ async function submitNewsletter(){
     const res = await fetch('https://formspree.io/f/xbdqrprq', {
       method: 'POST',
       headers: {'Content-Type': 'application/json', 'Accept': 'application/json'},
-      body: JSON.stringify({email, source: 'newsletter-blog'})
+      body: JSON.stringify({email})
     });
     if(res.ok){
-      msg.textContent = '✓ ¡Suscrito! Recibirás insights cada semana.';
+      msg.textContent = '✓ Recibido. Te contactamos en menos de 24 horas.';
       msg.style.color = 'var(--gold2)';
       msg.style.display = 'block';
       emailInput.value = '';
@@ -246,13 +750,49 @@ async function submitNewsletter(){
       throw new Error();
     }
   } catch(e){
-    msg.textContent = 'Hubo un error. Intenta de nuevo más tarde.';
+    msg.textContent = 'Hubo un error. Escríbenos directo a stratarevenue@gmail.com';
     msg.style.color = '#ff6b6b';
     msg.style.display = 'block';
-    btn.textContent = 'Suscribirme';
+    btn.textContent = 'Agendar ahora';
     btn.disabled = false;
   }
 }
+
+function calcROI(){
+  const rooms = +document.getElementById('rooms').value;
+  const adr   = +document.getElementById('adr').value;
+  const occ   = +document.getElementById('occ').value;
+  document.getElementById('rooms-val').textContent = rooms + ' habitaciones';
+  document.getElementById('adr-val').textContent   = '$' + adr + ' USD';
+  document.getElementById('occ-val').textContent   = occ + '%';
+  const gain    = Math.round(adr * (occ/100) * 0.22 * rooms * 365);
+  const roiMult = (gain / 8400).toFixed(1);
+  document.getElementById('roi-result').textContent = '$' + gain.toLocaleString('en-US');
+  document.getElementById('roi-mult').textContent   = roiMult + '×';
+}
+calcROI();
+
+/* ── DASH CHART ── */
+new Chart(document.getElementById('dashChart').getContext('2d'), {
+  type:'line',
+  data:{
+    labels:['L','M','X','J','V','S','D','L','M','X','J','V','S','D'],
+    datasets:[{
+      data:[78,82,85,88,86,105,112,84,89,92,95,93,118,124],
+      borderColor:'#C9962A',borderWidth:2,fill:true,
+      backgroundColor:'rgba(201,150,42,.1)',tension:0.4,
+      pointRadius:0,pointHoverRadius:4,
+    }]
+  },
+  options:{
+    responsive:true,maintainAspectRatio:false,
+    plugins:{legend:{display:false},tooltip:{callbacks:{label:ctx=>' RevPAR $'+ctx.parsed.y}}},
+    scales:{
+      x:{grid:{color:'rgba(255,255,255,.04)'},ticks:{font:{family:"'Syne',sans-serif",size:9},color:'rgba(255,255,255,.22)'}},
+      y:{grid:{color:'rgba(255,255,255,.04)'},ticks:{font:{family:"'Syne',sans-serif",size:9},color:'rgba(255,255,255,.22)',callback:v=>'$'+v}}
+    }
+  }
+});
 </script>
 </body>
 </html>
