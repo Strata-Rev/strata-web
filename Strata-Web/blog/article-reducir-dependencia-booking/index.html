@@ -86,13 +86,24 @@ footer{padding:1.4rem 5%;background:rgba(0,0,0,.4);border-top:1px solid rgba(201
 .footer-links a{font-size:.7rem;color:rgba(255,255,255,.22);text-decoration:none;transition:color .2s}
 .footer-links a:hover{color:var(--gold2)}
 @media(max-width:960px){.nav-links,.nav-cta{display:none}.nav-hamburger{display:flex}}
-@media(max-width:640px){
-  .article-hero{padding:6rem 4% 2.5rem}
-  .article-cover{height:52vw;min-height:180px}
-  .article-body{padding:2.5rem 4% 4rem}
-  .article-cta{padding:0 4% 3rem}
-  .cta-box{padding:2rem 1.5rem}
-  .related{padding:0 4% 4rem}
+@media(max-width:768px){
+  .article-hero{padding:7rem 4% 2.5rem}
+  .article-title{font-size:clamp(1.5rem,5.5vw,2.2rem)}
+  .related-grid{grid-template-columns:1fr}
+}
+@media(max-width:480px){
+  .article-hero{padding:6.5rem 4% 2rem}
+  .article-cat{font-size:.62rem}
+  .article-title{font-size:clamp(1.3rem,5vw,1.7rem)}
+  .article-back{font-size:.65rem;margin-bottom:1rem}
+  .article-cover{height:54vw;min-height:180px}
+  .article-body{padding:2rem 4% 3.5rem}
+  .article-body h2{font-size:clamp(1.1rem,4vw,1.35rem)}
+  .article-body p,.article-body li{font-size:.9rem;line-height:1.8}
+  .article-cta{padding:0 4% 2.5rem}
+  .cta-box{padding:1.8rem 1.2rem}
+  .cta-box h3{font-size:1rem}
+  .related{padding:0 4% 3.5rem}
   .related-grid{grid-template-columns:1fr}
   footer{flex-direction:column;text-align:center}
 }
@@ -118,7 +129,7 @@ footer{padding:1.4rem 5%;background:rgba(0,0,0,.4);border-top:1px solid rgba(201
   <a href="/#roi" onclick="closeMobile()">Calculadora ROI</a>
   <a href="/#servicios" onclick="closeMobile()">Servicios</a>
   <a href="/blog" onclick="closeMobile()">Blog</a>
-  <a href="/#contacto" class="mob-cta" onclick="closeMobile()">Calcular mi ROI</a>
+  <a href="/#roi" class="mob-cta" onclick="closeMobile()">Calcular mi ROI</a>
 </div>
 <nav>
   <a href="/" class="nav-logo"><img src="/logo-dark.png" alt="Strata Revenue Intelligence"><span class="nav-brand">Strata<br>Revenue Intelligence</span></a>
@@ -127,7 +138,7 @@ footer{padding:1.4rem 5%;background:rgba(0,0,0,.4);border-top:1px solid rgba(201
     <li><a href="/blog">Blog</a></li>
     <li><a href="/#proceso">Proceso</a></li>
   </ul>
-  <a href="/#contacto" class="nav-cta">Calcular mi ROI</a>
+  <a href="/#roi" class="nav-cta">Calcular mi ROI</a>
   <button class="nav-hamburger" id="hamburger"><span></span><span></span><span></span></button>
 </nav>
 
@@ -267,14 +278,14 @@ footer{padding:1.4rem 5%;background:rgba(0,0,0,.4);border-top:1px solid rgba(201
 
   <hr>
   <p>Si este artículo te fue útil, también puede interesarte: <a href="/blog/article-revpar-hoteles-boutique/">Por qué el 90% de los hoteles boutique dejan RevPAR sobre la mesa</a> y <a href="/blog/article-ia-revenue-management/">IA en revenue management: qué funciona hoy para hoteles independientes</a>.</p>
-  <p>¿Quieres un diagnóstico de tu mix de canales actual? <a href="/#contacto">Escríbeme</a> y en una llamada de 30 minutos te digo exactamente dónde están las oportunidades.</p>
+  <p>¿Quieres un diagnóstico de tu mix de canales actual? <a href="/#roi">Escríbeme</a> y en una llamada de 30 minutos te digo exactamente dónde están las oportunidades.</p>
 </div>
 
 <div class="article-cta">
   <div class="cta-box">
     <h3>Diagnostica tu mix de canales</h3>
     <p>30 minutos. Sin costo. Sin compromiso.</p>
-    <a href="/#contacto">Agendar diagnóstico gratuito</a>
+    <a href="/#roi">Agendar diagnóstico gratuito</a>
   </div>
 </div>
 
