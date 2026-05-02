@@ -76,11 +76,18 @@ footer{padding:1.4rem 5%;background:rgba(0,0,0,.4);border-top:1px solid rgba(201
 .footer-links a:hover{color:var(--gold2)}
 
 @media(max-width:960px){.nav-links,.nav-cta{display:none}.nav-hamburger{display:flex}}
-@media(max-width:768px){.blog-grid{grid-template-columns:1fr 1fr}}
-@media(max-width:540px){
-  .blog-hero{padding:6rem 4% 2.5rem}
-  .blog-grid-section{padding:3rem 4% 5rem}
+@media(max-width:768px){
+  .blog-grid{grid-template-columns:1fr 1fr}
+  .blog-hero-title{font-size:clamp(1.6rem,5vw,2.4rem)}
+}
+@media(max-width:480px){
+  .blog-hero{padding:6rem 4% 2rem}
+  .blog-hero-title{font-size:clamp(1.4rem,6vw,2rem)}
+  .blog-hero-sub{font-size:.88rem}
+  .blog-grid-section{padding:2.5rem 4% 4rem}
   .blog-grid{grid-template-columns:1fr}
+  .blog-card-title{font-size:.92rem}
+  .blog-card-excerpt{font-size:.82rem}
   footer{flex-direction:column;text-align:center}
 }
 </style>
