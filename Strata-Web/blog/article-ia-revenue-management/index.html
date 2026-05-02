@@ -209,17 +209,30 @@ footer{padding:1.4rem 5%;background:rgba(0,0,0,.4);border-top:1px solid rgba(201
 .footer-links a:hover{color:var(--gold2)}
 
 @media(max-width:960px){.nav-links,.nav-cta{display:none}.nav-hamburger{display:flex}}
-@media(max-width:640px){
-  .article-hero{min-height:70vw}
-  .hero-content{padding:2rem 4% 2.5rem}
-  .article-body{padding:2.5rem 4% 4rem}
-  .article-cta{padding:0 4% 3rem}
-  .cta-box{padding:2rem 1.5rem}
-  .related{padding:0 4% 4rem}
+@media(max-width:768px){
+  .article-hero{min-height:85vw}
+  .hero-content{padding:5rem 4% 2.5rem}
+  .article-title{font-size:clamp(1.5rem,5.5vw,2.2rem)}
   .related-grid{grid-template-columns:1fr}
   .stat-row{grid-template-columns:1fr}
+}
+@media(max-width:480px){
+  .article-hero{min-height:100vw}
+  .hero-content{padding:5.5rem 4% 2rem}
+  .article-cat{font-size:.62rem}
+  .article-title{font-size:clamp(1.35rem,5vw,1.8rem);letter-spacing:-.02em}
+  .article-back{font-size:.65rem;margin-bottom:1rem}
+  .article-body{padding:2rem 4% 3.5rem}
+  .article-body h2{font-size:clamp(1.1rem,4vw,1.35rem)}
+  .article-body p,.article-body li{font-size:.9rem;line-height:1.8}
+  .article-cta{padding:0 4% 2.5rem}
+  .cta-box{padding:1.8rem 1.2rem}
+  .cta-box h3{font-size:1rem}
+  .related{padding:0 4% 3.5rem}
+  .related-grid{grid-template-columns:1fr}
+  .stat-row{grid-template-columns:1fr}
+  .linkbuild-section{padding:1.2rem 1rem}
   footer{flex-direction:column;text-align:center}
-  .linkbuild-section{padding:1.5rem 1.2rem}
 }
 </style>
 </head>
