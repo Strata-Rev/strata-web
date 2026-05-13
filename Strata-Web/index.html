@@ -3,19 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Strata Revenue Intelligence · Revenue Management para Hoteles Boutique e Independientes</title>
-<meta name="description" content="Consultoría de revenue management para hoteles boutique, rurales e independientes en México. Aumenta tus reservas directas y reduce comisiones OTA.">
-<meta name="robots" content="index, follow">
-<link rel="canonical" href="https://stratarevenue.com.mx/">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Strata Revenue Intelligence · Revenue Management para Hoteles Boutique">
-<meta property="og:description" content="Consultoría de revenue management para hoteles boutique, rurales e independientes en México. Aumenta tus reservas directas y reduce comisiones OTA.">
-<meta property="og:url" content="https://stratarevenue.com.mx/">
-<meta property="og:image" content="https://stratarevenue.com.mx/logo-dark.png">
-<meta property="og:site_name" content="Strata Revenue Intelligence">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Strata Revenue Intelligence · Revenue Management para Hoteles Boutique">
-<meta name="twitter:description" content="Consultoría de revenue management para hoteles boutique, rurales e independientes en México.">
+<title>Strata Revenue Intelligence · Data-Driven Revenue para Hoteles Boutique</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Lora:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
@@ -301,6 +289,11 @@ nav{
 .cta-submit:hover{background:var(--gold2)}
 .cta-promise{margin-top:1rem;font-size:.75rem;color:rgba(255,255,255,.22);font-family:var(--lora);font-style:italic}
 
+/* ── WHATSAPP FLOTANTE ── */
+.wa-float{position:fixed;bottom:1.8rem;right:1.8rem;z-index:999;width:56px;height:56px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(37,211,102,.4);transition:transform .2s,box-shadow .2s;text-decoration:none}
+.wa-float:hover{transform:scale(1.1);box-shadow:0 6px 28px rgba(37,211,102,.55)}
+.wa-float svg{width:30px;height:30px;fill:#fff}
+
 /* ─── FOOTER ─── */
 footer{padding:1.6rem 5%;background:rgba(0,0,0,.4);border-top:1px solid rgba(201,150,42,.08);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem}
 .footer-copy{font-size:.73rem;color:rgba(255,255,255,.22);letter-spacing:.04em}
@@ -370,14 +363,14 @@ footer{padding:1.6rem 5%;background:rgba(0,0,0,.4);border-top:1px solid rgba(201
 <!-- MOBILE MENU -->
 <div class="mobile-menu" id="mobileMenu">
   <a href="#servicios" onclick="closeMobile()">Servicios</a>
-  <a href="/blog" onclick="closeMobile()">Blog</a>
+  <a href="blog.html" onclick="closeMobile()">Blog</a>
   <a href="#proceso" onclick="closeMobile()">Proceso</a>
   <a href="#roi" class="mob-cta" onclick="closeMobile()">Calcular mi ROI</a>
 </div>
 
 <!-- NAV -->
 <nav>
-  <a href="/" class="nav-logo">
+  <a href="index.html" class="nav-logo">
     <img src="logo-dark.png" alt="Strata Revenue Intelligence">
     <div class="nav-logo-text">
       <span class="nav-logo-name">Strata</span>
@@ -386,7 +379,7 @@ footer{padding:1.6rem 5%;background:rgba(0,0,0,.4);border-top:1px solid rgba(201
   </a>
   <ul class="nav-links">
     <li><a href="#servicios">Servicios</a></li>
-    <li><a href="/blog">Blog</a></li>
+    <li><a href="blog.html">Blog</a></li>
     <li><a href="#proceso">Proceso</a></li>
   </ul>
   <a href="#roi" class="nav-cta">Calcular mi ROI</a>
@@ -617,7 +610,7 @@ footer{padding:1.6rem 5%;background:rgba(0,0,0,.4);border-top:1px solid rgba(201
       <span class="tag tag-light">Blog</span>
       <h2>Insights de<br><em>revenue hotelero.</em></h2>
     </div>
-    <a href="/blog" class="blog-ver-mas">Ver todos los artículos →</a>
+    <a href="blog.html" class="blog-ver-mas">Ver todos los artículos →</a>
   </div>
   <div class="blog-grid reveal">
     <div class="blog-card">
@@ -628,7 +621,7 @@ footer{padding:1.6rem 5%;background:rgba(0,0,0,.4);border-top:1px solid rgba(201
         <p class="blog-card-excerpt">La mayoría de las propiedades fijan precios de forma reactiva. Los tres errores más comunes y cómo corregirlos con datos reales.</p>
         <div class="blog-card-meta">
           <span class="blog-card-date">15 Mar 2026 · 6 min</span>
-          <a href="/blog/article-revpar-hoteles-boutique/" class="blog-card-read">Leer →</a>
+          <a href="article-revpar-hoteles-boutique.html" class="blog-card-read">Leer →</a>
         </div>
       </div>
     </div>
@@ -640,7 +633,7 @@ footer{padding:1.6rem 5%;background:rgba(0,0,0,.4);border-top:1px solid rgba(201
         <p class="blog-card-excerpt">Reducir comisiones del 18-22% de OTAs es posible con una estrategia de canal inteligente. El paso a paso que uso con mis clientes en LATAM.</p>
         <div class="blog-card-meta">
           <span class="blog-card-date">28 Feb 2026 · 8 min</span>
-          <a href="/blog/article-reducir-dependencia-booking/" class="blog-card-read">Leer →</a>
+          <a href="article-reducir-dependencia-booking.html" class="blog-card-read">Leer →</a>
         </div>
       </div>
     </div>
@@ -652,7 +645,7 @@ footer{padding:1.6rem 5%;background:rgba(0,0,0,.4);border-top:1px solid rgba(201
         <p class="blog-card-excerpt">No necesitas un sistema de $50,000 USD al año. Las herramientas de IA accesibles que realmente mueven la aguja en propiedades de 10-60 habitaciones.</p>
         <div class="blog-card-meta">
           <span class="blog-card-date">10 Feb 2026 · 7 min</span>
-          <a href="/blog/article-ia-revenue-management/" class="blog-card-read">Leer →</a>
+          <a href="article-ia-revenue-management.html" class="blog-card-read">Leer →</a>
         </div>
       </div>
     </div>
@@ -685,17 +678,22 @@ footer{padding:1.6rem 5%;background:rgba(0,0,0,.4);border-top:1px solid rgba(201
       <button class="cta-submit" id="ctaBtn" onclick="submitCTA()">Agendar ahora</button>
     </div>
     <p class="cta-msg" id="ctaMsg" style="display:none;margin-top:1rem;font-size:.85rem;font-family:var(--lora);font-style:italic;color:var(--gold2)"></p>
+    <p style="margin-top:1.2rem;font-size:.82rem;font-family:var(--lora);color:rgba(255,255,255,.35)">O agenda directo: <a href="https://calendly.com/stratarevenue/30min" target="_blank" rel="noopener" style="color:var(--gold2);text-decoration:underline;text-underline-offset:3px">elige tu horario →</a></p>
     <p class="cta-promise">Sin compromiso · Respuesta en menos de 24 horas · Confidencial</p>
   </div>
 </section>
 
 <!-- FOOTER -->
+<a href="https://wa.me/5218112279323?text=Hola%2C%20me%20interesa%20un%20diagn%C3%B3stico%20gratuito%20para%20mi%20hotel" class="wa-float" target="_blank" rel="noopener" aria-label="Contactar por WhatsApp">
+  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.886 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+
 <footer>
   <span class="footer-copy">© 2026 Strata Revenue Intelligence</span>
   <ul class="footer-links">
     <li><a href="https://www.linkedin.com/company/strata-revenue-intelligence" target="_blank" rel="noopener">LinkedIn</a></li>
-    <li><a href="#">WhatsApp</a></li>
-    <li><a href="#">Calendly</a></li>
+    <li><a href="https://wa.me/5218112279323?text=Hola%2C%20me%20interesa%20un%20diagn%C3%B3stico%20gratuito%20para%20mi%20hotel" target="_blank" rel="noopener">WhatsApp</a></li>
+    <li><a href="https://calendly.com/stratarevenue/30min" target="_blank" rel="noopener">Agendar llamada</a></li>
   </ul>
 </footer>
 
@@ -720,7 +718,10 @@ const obs = new IntersectionObserver(entries => {
 }, {threshold: 0.06});
 document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
 
-/* ── CTA FORM ── */
+/* ── WHATSAPP FLOAT ── */
+.wa-float{position:fixed;bottom:2rem;right:2rem;z-index:9999;width:56px;height:56px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(37,211,102,.4);transition:transform .2s,box-shadow .2s;text-decoration:none}
+.wa-float:hover{transform:scale(1.1);box-shadow:0 6px 28px rgba(37,211,102,.55)}
+.wa-float svg{width:30px;height:30px;fill:#fff}
 async function submitCTA(){
   const emailInput = document.getElementById('ctaEmail');
   const btn = document.getElementById('ctaBtn');
@@ -794,5 +795,10 @@ new Chart(document.getElementById('dashChart').getContext('2d'), {
   }
 });
 </script>
+<!-- WHATSAPP FLOTANTE -->
+<a class="wa-float" href="https://wa.me/5218112279323?text=Hola%2C%20me%20interesa%20un%20diagn%C3%B3stico%20gratuito%20para%20mi%20hotel" target="_blank" rel="noopener" aria-label="WhatsApp">
+  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+
 </body>
 </html>
