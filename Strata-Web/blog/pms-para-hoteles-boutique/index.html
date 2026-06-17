@@ -1,1 +1,515 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PMS para hoteles boutique: cómo dejar Excel sin pagar fortunas en tecnología · Strata</title>
+<meta name="description" content="Guía práctica sobre PMS para hoteles boutique e independientes: qué es, cómo elimina el overbooking y los errores de Excel, y cómo elegir entre opciones asequibles como Cloudbeds o Little Hotelier.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://stratarevenue.com.mx/blog/pms-para-hoteles-boutique/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="PMS para hoteles boutique: cómo dejar Excel sin pagar fortunas en tecnología">
+<meta property="og:description" content="Qué es un PMS hotelero, cómo elimina el overbooking y los errores manuales, y cómo elegir la opción correcta para tu propiedad boutique.">
+<meta property="og:url" content="https://stratarevenue.com.mx/blog/pms-para-hoteles-boutique/">
+<meta property="og:image" content="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=1200&q=85&auto=format&fit=crop">
+<meta property="og:site_name" content="Strata Revenue Intelligence">
+<meta property="article:published_time" content="2026-06-16T08:00:00-06:00">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="PMS para hoteles boutique: cómo dejar Excel sin pagar fortunas en tecnología">
+<meta name="twitter:description" content="Cómo un PMS en la nube elimina el overbooking y los errores manuales en hoteles boutique e independientes.">
+<meta name="twitter:image" content="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=1200&q=85&auto=format&fit=crop">
 
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","headline":"PMS para hoteles boutique: cómo dejar Excel sin pagar fortunas en tecnología","description":"Guía práctica sobre PMS para hoteles boutique e independientes: qué es, cómo elimina el overbooking y los errores de Excel, y cómo elegir entre opciones asequibles.","image":"https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=1200&q=85&auto=format&fit=crop","author":{"@type":"Organization","name":"Strata Revenue Intelligence","url":"https://stratarevenue.com.mx"},"publisher":{"@type":"Organization","name":"Strata Revenue Intelligence","url":"https://stratarevenue.com.mx"},"datePublished":"2026-06-16","dateModified":"2026-06-16","mainEntityOfPage":{"@type":"WebPage","@id":"https://stratarevenue.com.mx/blog/pms-para-hoteles-boutique/"},"keywords":"PMS para hoteles, sistema de gestión hotelera, evitar overbooking, Cloudbeds, Little Hotelier, channel manager para hoteles boutique","inLanguage":"es-MX","mainEntity":{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"¿Qué es un PMS hotelero?","acceptedAnswer":{"@type":"Answer","text":"Un PMS (Property Management System) es el software que centraliza la gestión de reservas, disponibilidad, tarifas, check-in y check-out de un hotel. Sincroniza el inventario en tiempo real entre todos los canales de venta para evitar overbooking y errores manuales."}},{"@type":"Question","name":"¿Cuánto cuesta un PMS para un hotel boutique?","acceptedAnswer":{"@type":"Answer","text":"Los PMS en la nube para hoteles pequeños suelen costar entre 80 y 350 USD mensuales dependiendo del número de habitaciones y los módulos incluidos, como channel manager o motor de reservas. La mayoría cobra por habitación disponible, lo que hace el costo escalable."}},{"@type":"Question","name":"¿Vale la pena un PMS si tengo menos de 15 habitaciones?","acceptedAnswer":{"@type":"Answer","text":"Sí. El overbooking y los errores de doble reserva son igual o más frecuentes en propiedades pequeñas porque suelen depender de Excel o WhatsApp para gestionar múltiples canales manualmente. Un PMS básico para menos de 15 habitaciones puede costar menos de 100 USD mensuales y eliminar ese riesgo por completo."}},{"@type":"Question","name":"¿Cuál es la diferencia entre un PMS y un channel manager?","acceptedAnswer":{"@type":"Answer","text":"El PMS gestiona la operación interna del hotel: reservas, huéspedes, tarifas y reportes. El channel manager sincroniza esa disponibilidad y tarifas con las OTAs (Booking, Expedia, Airbnb) en tiempo real. Muchos PMS modernos como Cloudbeds incluyen ambos en una sola plataforma."}}]}}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Lora:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet">
+
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--gold:#C9962A;--gold2:#E8B84B;--ink:#0C0B09;--syne:'Syne',sans-serif;--lora:'Lora',Georgia,serif}
+html{scroll-behavior:smooth}
+body{background:var(--ink);color:#fff;font-family:var(--syne);overflow-x:hidden;font-size:16px}
+
+nav{position:fixed;top:0;left:0;right:0;z-index:300;display:flex;justify-content:space-between;align-items:center;padding:1rem 5%;background:rgba(12,11,9,.96);border-bottom:1px solid rgba(201,150,42,.15);backdrop-filter:blur(12px)}
+.nav-logo{display:flex;align-items:center;gap:.8rem;text-decoration:none}
+.nav-logo img{height:48px;width:auto;display:block}
+.nav-brand{font-family:var(--syne);font-size:.68rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.7);line-height:1.3;white-space:nowrap}
+.nav-links{display:flex;gap:2rem;list-style:none}
+.nav-links a{font-size:.72rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.55);text-decoration:none;transition:color .2s}
+.nav-links a:hover{color:var(--gold2)}
+.nav-cta{font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;background:transparent;color:var(--gold2);border:1.5px solid var(--gold2);padding:.55rem 1.4rem;text-decoration:none;transition:all .2s;white-space:nowrap}
+.nav-cta:hover{background:var(--gold2);color:var(--ink)}
+.nav-hamburger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:4px;z-index:310}
+.nav-hamburger span{display:block;width:22px;height:2px;background:rgba(255,255,255,.75);transition:all .25s}
+.nav-hamburger.open span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
+.nav-hamburger.open span:nth-child(2){opacity:0}
+.nav-hamburger.open span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
+.mobile-menu{display:none;position:fixed;inset:0;z-index:250;background:rgba(12,11,9,.99);flex-direction:column;align-items:center;justify-content:center;gap:2rem}
+.mobile-menu.open{display:flex}
+.mobile-menu a{font-size:1.2rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:rgba(255,255,255,.7);text-decoration:none}
+.mobile-menu .mob-cta{background:var(--gold);color:var(--ink);padding:.9rem 2.5rem;font-weight:700;font-size:.9rem}
+
+.article-hero{position:relative;padding:0;min-height:clamp(460px,62vw,640px);display:flex;align-items:flex-end;overflow:hidden}
+.hero-bg{position:absolute;inset:0;background-image:url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=1800&q=85&auto=format&fit=crop');background-size:cover;background-position:center 40%;filter:brightness(.38);transform:scale(1.03);transition:transform 8s ease}
+.article-hero:hover .hero-bg{transform:scale(1.0)}
+.hero-gradient{position:absolute;inset:0;background:linear-gradient(to top, rgba(12,11,9,1) 0%, rgba(12,11,9,.7) 40%, rgba(12,11,9,.1) 100%)}
+.hero-content{position:relative;z-index:2;padding:6rem 5% 3.5rem;max-width:820px}
+.article-back{display:inline-flex;align-items:center;gap:.5rem;font-size:.72rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.4);text-decoration:none;margin-bottom:1.8rem;transition:color .2s}
+.article-back:hover{color:var(--gold2)}
+.article-cat{font-size:.68rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--gold2);margin-bottom:1rem;display:block}
+.article-title{font-family:var(--syne);font-size:clamp(1.7rem,3.8vw,3.2rem);font-weight:800;line-height:1.08;letter-spacing:-.025em;color:#fff;margin-bottom:1.2rem}
+.article-title em{color:var(--gold2);font-style:normal}
+.article-meta{display:flex;gap:1.5rem;align-items:center;flex-wrap:wrap}
+.article-date,.article-time{font-size:.72rem;color:rgba(255,255,255,.35);letter-spacing:.06em}
+.article-meta-divider{width:1px;height:14px;background:rgba(255,255,255,.15)}
+
+.article-body{max-width:680px;margin:0 auto;padding:3.5rem 5% 5rem}
+.article-body h2{font-family:var(--syne);font-size:clamp(1.25rem,2.5vw,1.55rem);font-weight:800;color:#fff;margin:3rem 0 .9rem;letter-spacing:-.01em;padding-bottom:.6rem;border-bottom:1px solid rgba(201,150,42,.15)}
+.article-body h3{font-family:var(--syne);font-size:clamp(1rem,2vw,1.15rem);font-weight:700;color:var(--gold2);margin:2rem 0 .6rem}
+.article-body h4{font-family:var(--syne);font-size:clamp(.88rem,1.7vw,.98rem);font-weight:700;color:rgba(255,255,255,.6);letter-spacing:.06em;text-transform:uppercase;margin:1.5rem 0 .5rem}
+.article-body p{font-family:var(--lora);font-size:clamp(.92rem,1.8vw,1.05rem);color:rgba(255,255,255,.72);line-height:1.9;margin-bottom:1.4rem}
+.article-body strong{color:#fff;font-family:var(--syne);font-size:.93em;font-weight:700}
+.article-body ul,.article-body ol{font-family:var(--lora);font-size:clamp(.88rem,1.7vw,1rem);color:rgba(255,255,255,.65);line-height:1.8;margin:1rem 0 1.4rem 1.5rem}
+.article-body li{margin-bottom:.5rem}
+.article-body hr{border:none;border-top:1px solid rgba(255,255,255,.07);margin:2.8rem 0}
+.article-body a{color:var(--gold2);text-decoration:none;border-bottom:1px solid rgba(201,150,42,.3);transition:border-color .2s}
+.article-body a:hover{border-color:var(--gold2)}
+
+.article-img-wrap{margin:2.2rem 0 2.8rem;position:relative}
+.article-img-wrap img{width:100%;height:clamp(180px,32vw,380px);object-fit:cover;display:block}
+.article-img-caption{font-family:var(--syne);font-size:.67rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.28);margin-top:.7rem;padding-left:.2rem}
+
+.stat-row{display:grid;grid-template-columns:1fr 1fr;gap:1px;margin:2rem 0 2.5rem;background:rgba(201,150,42,.12);border:1px solid rgba(201,150,42,.12)}
+.stat-row.three-col{grid-template-columns:1fr 1fr 1fr}
+.stat-cell{background:rgba(12,11,9,.98);padding:1.4rem 1.2rem;text-align:center}
+.stat-num{font-family:var(--syne);font-size:clamp(1.6rem,3vw,2.2rem);font-weight:800;color:var(--gold2);line-height:1;display:block;margin-bottom:.4rem}
+.stat-label{font-family:var(--lora);font-size:.78rem;color:rgba(255,255,255,.4);line-height:1.4}
+
+.formula-box{background:rgba(201,150,42,.06);border:1px solid rgba(201,150,42,.18);border-left:3px solid var(--gold2);padding:1.6rem 1.8rem;margin:1.8rem 0}
+.formula-box__label{font-family:var(--syne);font-size:.62rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--gold2);margin-bottom:.7rem}
+.formula-box__eq{font-family:var(--syne);font-size:clamp(1rem,2.2vw,1.2rem);font-weight:800;color:#fff;line-height:1.5;margin-bottom:.3rem}
+.formula-box__sub{font-family:var(--lora);font-size:.88rem;color:rgba(255,255,255,.5);line-height:1.7;margin-top:.6rem}
+
+.callout{background:rgba(201,150,42,.06);border:1px solid rgba(201,150,42,.18);padding:1.4rem 1.6rem;margin:1.5rem 0}
+.callout__label{font-family:var(--syne);font-size:.62rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--gold2);margin-bottom:.5rem}
+.callout p{font-family:var(--lora);font-size:clamp(.88rem,1.6vw,.98rem);color:rgba(255,255,255,.65);line-height:1.8;margin-bottom:0!important}
+
+.tbl-wrap{margin:1.8rem 0 2.2rem;border:1px solid rgba(201,150,42,.12);overflow:hidden}
+.tbl{width:100%;border-collapse:collapse;font-size:clamp(.8rem,1.5vw,.9rem)}
+.tbl thead th{font-family:var(--syne);font-size:.6rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.35);background:rgba(201,150,42,.05);padding:.65rem .9rem;text-align:left;border-bottom:1px solid rgba(201,150,42,.1)}
+.tbl tbody td{font-family:var(--lora);padding:.7rem .9rem;color:rgba(255,255,255,.6);border-bottom:1px solid rgba(255,255,255,.04);vertical-align:top;line-height:1.55}
+.tbl tbody td:first-child{font-family:var(--syne);color:#fff;font-weight:700;font-size:.85em;letter-spacing:.02em}
+.tbl tbody tr:last-child td{border-bottom:none}
+.tbl tbody tr:nth-child(even) td{background:rgba(255,255,255,.015)}
+
+.cards-grid{display:grid;gap:1px;margin:1.5rem 0 2rem;background:rgba(201,150,42,.1);border:1px solid rgba(201,150,42,.1)}
+.strat-card{background:rgba(12,11,9,.98);padding:1.6rem 1.8rem;position:relative}
+.strat-card__num{font-family:var(--syne);font-size:.6rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--gold2);margin-bottom:.5rem;display:block}
+.strat-card__title{font-family:var(--syne);font-size:clamp(.95rem,1.9vw,1.05rem);font-weight:700;color:#fff;margin-bottom:.5rem;line-height:1.25}
+.strat-card__body{font-family:var(--lora);font-size:clamp(.86rem,1.6vw,.95rem);color:rgba(255,255,255,.6);line-height:1.8;margin:0}
+
+.checklist{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06);padding:1.6rem 1.8rem;margin:1.8rem 0}
+.checklist__title{font-family:var(--syne);font-size:.62rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.35);margin-bottom:1rem}
+.checklist__item{display:flex;gap:.9rem;align-items:flex-start;padding:.55rem 0;border-bottom:1px solid rgba(255,255,255,.04)}
+.checklist__item:last-child{border-bottom:none}
+.checklist__icon{font-size:1rem;min-width:20px;padding-top:.1rem}
+.checklist__text{font-family:var(--lora);font-size:.9rem;color:rgba(255,255,255,.62);line-height:1.65}
+.checklist__text strong{color:rgba(255,255,255,.85);font-family:var(--syne);font-size:.85em}
+
+.linkbuild-section{background:rgba(201,150,42,.04);border:1px solid rgba(201,150,42,.14);padding:2rem 2.2rem;margin:2.5rem 0}
+.linkbuild-section h3{margin-top:0!important}
+.linkbuild-item{display:flex;gap:1rem;align-items:flex-start;padding:.9rem 0;border-bottom:1px solid rgba(255,255,255,.05)}
+.linkbuild-item:last-child{border-bottom:none}
+.lb-num{font-family:var(--syne);font-size:.7rem;font-weight:800;color:var(--gold2);letter-spacing:.08em;min-width:28px;padding-top:.15rem}
+.lb-text{font-family:var(--lora);font-size:.9rem;color:rgba(255,255,255,.6);line-height:1.7}
+.lb-text strong{color:rgba(255,255,255,.85);font-family:var(--syne);font-size:.85em}
+
+.article-cta{max-width:680px;margin:0 auto;padding:0 5% 4rem}
+.cta-box{background:rgba(201,150,42,.07);border:1px solid rgba(201,150,42,.2);padding:2.5rem;text-align:center}
+.cta-box h3{font-family:var(--syne);font-size:clamp(1.1rem,2.5vw,1.35rem);font-weight:800;color:#fff;margin-bottom:.7rem}
+.cta-box p{font-family:var(--lora);font-style:italic;font-size:clamp(.88rem,1.6vw,.98rem);color:rgba(255,255,255,.5);margin-bottom:1.5rem}
+.cta-box a{display:inline-block;font-size:.78rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;background:var(--gold);color:var(--ink);padding:.9rem 2.4rem;text-decoration:none;border:none;transition:background .2s}
+.cta-box a:hover{background:var(--gold2)}
+
+.related{max-width:680px;margin:0 auto;padding:0 5% 6rem}
+.related-label{font-family:var(--syne);font-size:.82rem;font-weight:700;color:rgba(255,255,255,.28);letter-spacing:.12em;text-transform:uppercase;margin-bottom:1.5rem;padding-bottom:.8rem;border-bottom:1px solid rgba(255,255,255,.06)}
+.related-grid{display:grid;grid-template-columns:1fr 1fr;gap:2px}
+.related-card{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.05);padding:1.6rem;text-decoration:none;transition:border-color .25s;display:block}
+.related-card:hover{border-color:rgba(201,150,42,.3)}
+.related-tag{font-size:.6rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--gold2);margin-bottom:.6rem;display:block}
+.related-title{font-family:var(--syne);font-size:.88rem;font-weight:700;color:#fff;line-height:1.3}
+
+footer{padding:1.4rem 5%;background:rgba(0,0,0,.4);border-top:1px solid rgba(201,150,42,.08);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem}
+.footer-copy{font-size:.7rem;color:rgba(255,255,255,.22)}
+.footer-links{display:flex;gap:1.5rem;list-style:none}
+.footer-links a{font-size:.7rem;color:rgba(255,255,255,.22);text-decoration:none;transition:color .2s}
+.footer-links a:hover{color:var(--gold2)}
+
+@media(max-width:960px){.nav-links,.nav-cta{display:none}.nav-hamburger{display:flex}}
+@media(max-width:768px){
+  .article-hero{min-height:85vw}
+  .hero-content{padding:5rem 4% 2.5rem}
+  .article-title{font-size:clamp(1.5rem,5.5vw,2.2rem)}
+  .related-grid{grid-template-columns:1fr}
+  .stat-row{grid-template-columns:1fr}
+  .stat-row.three-col{grid-template-columns:1fr}
+}
+@media(max-width:480px){
+  .article-hero{min-height:100vw}
+  .hero-content{padding:5.5rem 4% 2rem}
+  .article-cat{font-size:.62rem}
+  .article-title{font-size:clamp(1.35rem,5vw,1.8rem);letter-spacing:-.02em}
+  .article-back{font-size:.65rem;margin-bottom:1rem}
+  .article-body{padding:2rem 4% 3.5rem}
+  .article-body h2{font-size:clamp(1.1rem,4vw,1.35rem)}
+  .article-body p,.article-body li{font-size:.9rem;line-height:1.8}
+  .article-cta{padding:0 4% 2.5rem}
+  .cta-box{padding:1.8rem 1.2rem}
+  .cta-box h3{font-size:1rem}
+  .related{padding:0 4% 3.5rem}
+  .related-grid{grid-template-columns:1fr}
+  .linkbuild-section{padding:1.2rem 1rem}
+  .checklist{padding:1.2rem 1rem}
+  footer{flex-direction:column;text-align:center}
+}
+</style>
+</head>
+<body>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="https://stratarevenue.com.mx/" onclick="closeMobile()">Inicio</a>
+  <a href="https://stratarevenue.com.mx/#roi" onclick="closeMobile()">Calculadora ROI</a>
+  <a href="https://stratarevenue.com.mx/#servicios" onclick="closeMobile()">Servicios</a>
+  <a href="https://stratarevenue.com.mx/blog/" onclick="closeMobile()">Blog</a>
+  <a href="https://stratarevenue.com.mx/#roi" class="mob-cta" onclick="closeMobile()">Calcular mi ROI</a>
+</div>
+
+<nav>
+  <a href="https://stratarevenue.com.mx/" class="nav-logo">
+    <img src="https://stratarevenue.com.mx/logo-dark.png" alt="Strata Revenue Intelligence">
+    <span class="nav-brand">Strata<br>Revenue Intelligence</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="https://stratarevenue.com.mx/#servicios">Servicios</a></li>
+    <li><a href="https://stratarevenue.com.mx/blog/">Blog</a></li>
+    <li><a href="https://stratarevenue.com.mx/#proceso">Proceso</a></li>
+  </ul>
+  <a href="https://stratarevenue.com.mx/#roi" class="nav-cta">Calcular mi ROI</a>
+  <button class="nav-hamburger" id="hamburger" aria-label="Menú"><span></span><span></span><span></span></button>
+</nav>
+
+<!-- HERO -->
+<div class="article-hero">
+  <div class="hero-bg"></div>
+  <div class="hero-gradient"></div>
+  <div class="hero-content">
+    <a href="https://stratarevenue.com.mx/blog/" class="article-back">← Volver al blog</a>
+    <span class="article-cat">Tecnología Hotelera · PMS · Operaciones</span>
+    <h1 class="article-title">
+      <em>PMS para hoteles boutique:</em><br>
+      cómo dejar el Excel atrás sin gastar fortunas en tecnología
+    </h1>
+    <div class="article-meta">
+      <span class="article-date">16 Jun 2026</span>
+      <span class="article-meta-divider"></span>
+      <span class="article-time">9 min de lectura</span>
+    </div>
+  </div>
+</div>
+
+<!-- CUERPO -->
+<div class="article-body">
+
+  <p>Son las 11:47 de la noche y un huésped llega a recepción con una confirmación de reserva en su celular. El problema: esa misma habitación ya tiene a otra pareja durmiendo en ella desde hace tres horas. Alguien la vendió dos veces — una por Booking, otra por WhatsApp — y nadie cruzó los datos a tiempo en la hoja de Excel.</p>
+
+  <p>Si esta escena te suena familiar, no estás solo. Es, probablemente, el problema operativo más estresante y más común entre hoteles boutique e independientes: <strong>la gestión manual de reservas</strong>. Hojas de cálculo que se desactualizan, libretas físicas, mensajes de WhatsApp dispersos entre tres personas del equipo, y la ansiedad constante de no saber con certeza qué habitaciones están realmente disponibles.</p>
+
+  <p>La buena noticia es que la solución a este problema ya no es exclusiva de las grandes cadenas. Existen sistemas de gestión hotelera (<strong>PMS</strong>) en la nube, asequibles y diseñados específicamente para propiedades pequeñas, que eliminan el overbooking y devuelven horas de trabajo a tu equipo cada semana.</p>
+
+  <!-- H2 #1 -->
+  <h2>¿Qué es un PMS y por qué Excel ya no es suficiente?</h2>
+
+  <p><strong>PMS</strong> significa <em>Property Management System</em>, o sistema de gestión hotelera. Es el software que centraliza todo lo relacionado con tus reservas: disponibilidad de habitaciones, tarifas, datos de huéspedes, check-in, check-out y reportes financieros — todo en un solo lugar, actualizado en tiempo real.</p>
+
+  <p>El problema de fondo con Excel no es que sea una mala herramienta — es una excelente hoja de cálculo. El problema es que <strong>no fue diseñada para sincronizar inventario entre múltiples canales de venta al mismo tiempo</strong>. Cuando vendes en Booking, Expedia, tu sitio web y WhatsApp de forma simultánea, cada reserva nueva tiene que actualizarse manualmente en los demás canales. Y ahí, tarde o temprano, alguien se olvida, se confunde de fecha, o no actualiza a tiempo.</p>
+
+  <div class="callout">
+    <p class="callout__label">⚠️ El costo real del overbooking</p>
+    <p>Más allá de la pérdida económica inmediata (reubicar a un huésped en otro hotel, reembolsos, descuentos de disculpa), el overbooking destruye reputación. Una mala experiencia de este tipo casi siempre termina en una reseña negativa pública — y esas reseñas afectan directamente tu posicionamiento futuro en Google y en las OTAs.</p>
+  </div>
+
+  <h3>Las señales de que tu hotel necesita un PMS ya</h3>
+
+  <div class="stat-row three-col">
+    <div class="stat-cell">
+      <span class="stat-num">2+</span>
+      <span class="stat-label">Canales de venta<br>simultáneos (Booking, web, WhatsApp)</span>
+    </div>
+    <div class="stat-cell">
+      <span class="stat-num">1+</span>
+      <span class="stat-label">Overbooking al mes<br>por desincronización manual</span>
+    </div>
+    <div class="stat-cell">
+      <span class="stat-num">5+ hrs</span>
+      <span class="stat-label">Semanales dedicadas<br>a actualizar disponibilidad a mano</span>
+    </div>
+  </div>
+
+  <p>Si tu hotel cumple con al menos dos de estas tres señales, cada semana sin un PMS es una semana de riesgo operativo y tiempo perdido que podría destinarse a vender más o mejorar la experiencia del huésped.</p>
+
+  <!-- IMAGEN 1 -->
+  <div class="article-img-wrap">
+    <img
+      src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=1200&q=85&auto=format&fit=crop"
+      alt="Recepcionista de hotel boutique gestionando reservas en una computadora con sistema PMS"
+      loading="lazy"
+    />
+    <p class="article-img-caption">Un PMS en la nube reemplaza las hojas de Excel y los cuadernos de reservas con un sistema centralizado, accesible desde cualquier dispositivo.</p>
+  </div>
+
+  <!-- H2 #2 -->
+  <h2>Cómo un PMS elimina el overbooking: la sincronización en tiempo real</h2>
+
+  <p>El corazón de un PMS moderno es algo llamado <strong>channel manager</strong>: un módulo que conecta tu inventario de habitaciones con todas tus OTAs (Booking, Expedia, Airbnb) y tu motor de reservas propio, de forma simultánea y automática.</p>
+
+  <p>Así funciona en la práctica: en el momento exacto en que alguien reserva una habitación —sin importar el canal por el que llegó— el sistema actualiza la disponibilidad en todos los demás canales en segundos. Ya no hay ventana de tiempo en la que dos personas puedan reservar la misma habitación por error.</p>
+
+  <div class="formula-box">
+    <p class="formula-box__label">Antes vs. después del PMS</p>
+    <p class="formula-box__eq">Sin PMS: Reserva → actualización manual en 3-4 canales → riesgo de error humano</p>
+    <p class="formula-box__sub">— versus —</p>
+    <p class="formula-box__eq">Con PMS: Reserva → sincronización automática en todos los canales → cero riesgo de doble venta</p>
+  </div>
+
+  <h3>Lo que un PMS hace además de evitar el overbooking</h3>
+
+  <p>Eliminar el overbooking suele ser la razón por la que un hotelero empieza a buscar un PMS, pero el verdadero valor está en todo lo demás que el sistema resuelve al mismo tiempo:</p>
+
+  <div class="checklist">
+    <p class="checklist__title">✅ Funciones clave de un PMS para hoteles boutique</p>
+    <div class="checklist__item">
+      <span class="checklist__icon">📅</span>
+      <p class="checklist__text"><strong>Calendario visual de disponibilidad.</strong> Ves de un vistazo qué habitaciones están ocupadas, libres o en mantenimiento, sin tener que abrir tres archivos distintos.</p>
+    </div>
+    <div class="checklist__item">
+      <span class="checklist__icon">💳</span>
+      <p class="checklist__text"><strong>Cobro y facturación integrados.</strong> Procesa pagos con tarjeta, genera facturas y mantiene el historial financiero sin hojas de cálculo paralelas.</p>
+    </div>
+    <div class="checklist__item">
+      <span class="checklist__icon">👤</span>
+      <p class="checklist__text"><strong>Perfil de huésped con historial.</strong> Sabes si alguien ya se hospedó antes, qué preferencias tiene y puedes personalizar su próxima estancia — la base de cualquier estrategia de fidelización.</p>
+    </div>
+    <div class="checklist__item">
+      <span class="checklist__icon">📊</span>
+      <p class="checklist__text"><strong>Reportes de ocupación, ADR y RevPAR.</strong> En lugar de calcular tus métricas a mano cada fin de mes, el PMS las genera automáticamente y en tiempo real.</p>
+    </div>
+    <div class="checklist__item">
+      <span class="checklist__icon">🔌</span>
+      <p class="checklist__text"><strong>Motor de reservas para tu sitio web.</strong> Permite que los huéspedes reserven directamente desde tu página, sin comisión de OTA, sincronizado con el mismo inventario.</p>
+    </div>
+    <div class="checklist__item">
+      <span class="checklist__icon">📱</span>
+      <p class="checklist__text"><strong>Acceso desde cualquier dispositivo.</strong> Como es un sistema en la nube, puedes revisar tu hotel desde el celular sin estar físicamente en recepción.</p>
+    </div>
+  </div>
+
+  <!-- IMAGEN 2 -->
+  <div class="article-img-wrap">
+    <img
+      src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?w=1200&q=85&auto=format&fit=crop"
+      alt="Dashboard de un sistema PMS hotelero mostrando calendario de reservas y disponibilidad"
+      loading="lazy"
+    />
+    <p class="article-img-caption">Un calendario centralizado y sincronizado elimina la necesidad de cruzar manualmente la disponibilidad entre canales de venta.</p>
+  </div>
+
+  <!-- H2 #3 -->
+  <h2>Cómo elegir el PMS correcto para tu propiedad</h2>
+
+  <p>No todos los PMS están diseñados para el mismo tipo de propiedad. Algunos son excelentes para cadenas grandes pero resultan excesivos y costosos para un hotel de 12 habitaciones. Otros son ideales para propiedades pequeñas pero limitados si planeas crecer. Aquí una comparación de las opciones más populares entre hoteles boutique e independientes en México y LATAM:</p>
+
+  <div class="tbl-wrap">
+    <table class="tbl" aria-label="Comparación de PMS para hoteles boutique">
+      <thead>
+        <tr>
+          <th>PMS</th>
+          <th>Ideal para</th>
+          <th>Punto fuerte</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Cloudbeds</td>
+          <td>Hoteles boutique de 10-80 habitaciones</td>
+          <td>Todo en uno: PMS + channel manager + motor de reservas + reportes avanzados</td>
+        </tr>
+        <tr>
+          <td>Little Hotelier</td>
+          <td>Propiedades pequeñas e independientes (5-30 hab.)</td>
+          <td>Interfaz simple, fácil de aprender sin capacitación extensa</td>
+        </tr>
+        <tr>
+          <td>Hotelogix</td>
+          <td>Propiedades en crecimiento con múltiples ubicaciones</td>
+          <td>Buena relación precio-funcionalidad para cadenas pequeñas</td>
+        </tr>
+        <tr>
+          <td>eZee Absolute</td>
+          <td>Hoteles con presupuesto ajustado</td>
+          <td>Planes de entrada más económicos del mercado</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>5 preguntas que debes hacerte antes de elegir</h3>
+
+  <div class="cards-grid">
+    <div class="strat-card">
+      <span class="strat-card__num">Pregunta 01</span>
+      <p class="strat-card__title">¿Incluye channel manager o se paga por separado?</p>
+      <p class="strat-card__body">Algunos PMS cobran el channel manager como módulo adicional. Pregunta el costo total con esa función incluida, no solo el precio base del PMS.</p>
+    </div>
+    <div class="strat-card">
+      <span class="strat-card__num">Pregunta 02</span>
+      <p class="strat-card__title">¿El soporte está disponible en español y en tu zona horaria?</p>
+      <p class="strat-card__body">Si tienes un problema operativo a las 10pm un viernes, necesitas saber que hay alguien que pueda ayudarte en tu idioma y horario.</p>
+    </div>
+    <div class="strat-card">
+      <span class="strat-card__num">Pregunta 03</span>
+      <p class="strat-card__title">¿Cómo cobra: por habitación, por reserva o tarifa fija?</p>
+      <p class="strat-card__body">Entender el modelo de precios te evita sorpresas cuando tu ocupación crece. Algunos PMS escalan el costo con el volumen de reservas, no solo con el número de habitaciones.</p>
+    </div>
+    <div class="strat-card">
+      <span class="strat-card__num">Pregunta 04</span>
+      <p class="strat-card__title">¿Qué tan fácil es la migración de datos desde Excel?</p>
+      <p class="strat-card__body">Pide ver el proceso de migración antes de comprometerte. Un buen proveedor te ayuda a importar tu historial de huéspedes y reservas futuras sin que tengas que capturarlo todo a mano.</p>
+    </div>
+  </div>
+
+  <!-- IMAGEN 3 -->
+  <div class="article-img-wrap">
+    <img
+      src="https://images.unsplash.com/photo-1556742502-ec7c0e9f34b1?w=1200&q=85&auto=format&fit=crop"
+      alt="Equipo de hotel boutique capacitándose en el uso de un nuevo sistema PMS"
+      loading="lazy"
+    />
+    <p class="article-img-caption">La transición de Excel a un PMS suele tomar entre una y dos semanas, incluyendo la capacitación del equipo de recepción y reservas.</p>
+  </div>
+
+  <!-- H2 #4 -->
+  <h2>Cuánto cuesta realmente un PMS — y por qué suele pagarse solo</h2>
+
+  <p>Uno de los principales frenos para adoptar un PMS es la percepción de que es una tecnología cara, reservada para cadenas grandes. La realidad es distinta: los PMS en la nube modernos están diseñados con modelos de precio escalables, accesibles desde el primer mes.</p>
+
+  <div class="callout">
+    <p class="callout__label">💰 Referencia de inversión</p>
+    <p>Para un hotel boutique de 10 a 25 habitaciones, un PMS con channel manager y motor de reservas incluido suele costar entre <strong>80 y 250 USD mensuales</strong>. Si ese sistema evita un solo overbooking al mes — con su correspondiente reembolso, reubicación y daño reputacional — la inversión ya se recuperó.</p>
+  </div>
+
+  <p>Además del ahorro directo por errores evitados, está el ahorro de tiempo: recuperar entre 5 y 10 horas semanales que el equipo dedicaba a actualizar manualmente disponibilidad en distintos canales es tiempo que se puede redirigir a atención al huésped, ventas directas o seguimiento de reseñas.</p>
+
+  <!-- H2 #5 -->
+  <h2>Errores comunes al migrar de Excel a un PMS</h2>
+
+  <div class="linkbuild-section">
+    <div class="linkbuild-item">
+      <span class="lb-num">01</span>
+      <p class="lb-text"><strong>Migrar sin capacitar al equipo completo.</strong> Si solo el gerente aprende a usar el sistema, el resto del equipo seguirá recurriendo a métodos manuales "por si acaso". La capacitación debe incluir a todo el personal de recepción y reservas desde el primer día.</p>
+    </div>
+    <div class="linkbuild-item">
+      <span class="lb-num">02</span>
+      <p class="lb-text"><strong>No conectar todos los canales de venta desde el inicio.</strong> Si migras Booking pero dejas Airbnb o WhatsApp fuera del sistema "por ahora", el riesgo de overbooking simplemente se traslada a esos canales no conectados.</p>
+    </div>
+    <div class="linkbuild-item">
+      <span class="lb-num">03</span>
+      <p class="lb-text"><strong>Elegir el PMS más barato sin revisar el soporte.</strong> Un sistema económico sin soporte adecuado en momentos críticos puede costar más en problemas operativos de lo que ahorras en la mensualidad.</p>
+    </div>
+    <div class="linkbuild-item">
+      <span class="lb-num">04</span>
+      <p class="lb-text"><strong>No aprovechar los reportes para tomar decisiones.</strong> Muchos hoteles adoptan un PMS solo para gestionar reservas y nunca revisan los reportes de ocupación, ADR o RevPAR que el sistema genera automáticamente — dejando pasar información valiosa para ajustar tarifas.</p>
+    </div>
+  </div>
+
+  <!-- H2 #6 — FAQ -->
+  <h2>Preguntas frecuentes sobre PMS para hoteles boutique</h2>
+
+  <h3>¿Qué es un PMS hotelero?</h3>
+  <p>Es el software que centraliza la gestión de reservas, disponibilidad, tarifas, check-in y check-out de un hotel, sincronizando el inventario en tiempo real entre todos los canales de venta para evitar overbooking y errores manuales.</p>
+
+  <h3>¿Cuánto cuesta un PMS para un hotel boutique?</h3>
+  <p>Los PMS en la nube para hoteles pequeños suelen costar entre 80 y 350 USD mensuales, dependiendo del número de habitaciones y los módulos incluidos como channel manager o motor de reservas. La mayoría cobra de forma escalable según el tamaño de la propiedad.</p>
+
+  <h3>¿Vale la pena un PMS si tengo menos de 15 habitaciones?</h3>
+  <p>Sí. El overbooking y los errores de doble reserva son igual o más frecuentes en propiedades pequeñas, precisamente porque suelen depender de Excel o WhatsApp para gestionar múltiples canales manualmente. Un PMS básico para menos de 15 habitaciones puede costar menos de 100 USD mensuales y eliminar ese riesgo por completo.</p>
+
+  <h3>¿Cuál es la diferencia entre un PMS y un channel manager?</h3>
+  <p>El PMS gestiona la operación interna del hotel: reservas, huéspedes, tarifas y reportes. El channel manager sincroniza esa disponibilidad y tarifas con las OTAs en tiempo real. Muchos PMS modernos como Cloudbeds incluyen ambos módulos integrados en una sola plataforma, lo cual simplifica la operación para hoteles pequeños.</p>
+
+  <hr>
+
+  <!-- H2 #7 — Conclusión -->
+  <h2>Conclusión: la tecnología accesible ya no es solo para las grandes cadenas</h2>
+
+  <p>Durante mucho tiempo, la brecha tecnológica entre los grandes corporativos hoteleros y las propiedades independientes parecía insalvable: ellos con sistemas robustos y presupuestos millonarios, los hoteles boutique con Excel, WhatsApp y mucha buena voluntad. Esa brecha se ha cerrado de forma significativa en los últimos años gracias a los PMS en la nube diseñados específicamente para propiedades pequeñas y medianas.</p>
+
+  <p>Adoptar un PMS no es solo una mejora tecnológica — es una decisión que protege tu reputación, libera el tiempo de tu equipo y te da visibilidad real sobre cómo está funcionando tu negocio. El overbooking que hoy te quita el sueño puede convertirse, con el sistema correcto, en un problema del pasado.</p>
+
+  <p>El primer paso no es elegir el sistema más completo del mercado, sino el que se ajusta exactamente al tamaño y las necesidades actuales de tu propiedad. De ahí, puedes crecer.</p>
+
+  <p>¿Quieres saber qué tan preparado está tu hotel para dar el salto a un PMS, y cuánto podrías ahorrar en errores operativos? Usa nuestra <a href="https://stratarevenue.com.mx/#roi">calculadora de ROI gratuita</a> y obtén un estimado en menos de 2 minutos.</p>
+
+</div>
+
+<!-- CTA -->
+<div class="article-cta">
+  <div class="cta-box">
+    <h3>¿Sigues gestionando tu hotel con Excel o WhatsApp?</h3>
+    <p>En 30 minutos analizamos tu operación actual y te decimos exactamente qué tipo de PMS necesitas — sin presión de venta, sin tecnicismos.</p>
+    <a href="https://stratarevenue.com.mx/#contacto">Quiero una conversación gratuita</a>
+  </div>
+</div>
+
+<!-- RELATED -->
+<div class="related">
+  <p class="related-label">Más artículos</p>
+  <div class="related-grid">
+    <a href="https://stratarevenue.com.mx/blog/seo-local-para-hoteles-boutique/" class="related-card">
+      <span class="related-tag">Marketing · SEO</span>
+      <p class="related-title">SEO local para hoteles boutique: cómo aparecer en Google antes que Booking</p>
+    </a>
+    <a href="https://stratarevenue.com.mx/blog/que-es-el-revpar/" class="related-card">
+      <span class="related-tag">Métricas · Revenue Management</span>
+      <p class="related-title">¿Qué es el RevPAR? La métrica clave para medir y maximizar los ingresos de tu hotel</p>
+    </a>
+  </div>
+</div>
+
+<footer>
+  <span class="footer-copy">© 2026 Strata Revenue Intelligence</span>
+  <ul class="footer-links">
+    <li><a href="https://www.linkedin.com/company/strata-revenue-intelligence" target="_blank">LinkedIn</a></li>
+    <li><a href="https://www.instagram.com/stratarevenue" target="_blank">Instagram</a></li>
+    <li><a href="https://calendly.com/stratarevenue/30min" target="_blank">Calendly</a></li>
+  </ul>
+</footer>
+
+<script>
+const hamburger=document.getElementById('hamburger');
+const mobileMenu=document.getElementById('mobileMenu');
+hamburger.addEventListener('click',()=>{
+  hamburger.classList.toggle('open');
+  mobileMenu.classList.toggle('open');
+  document.body.style.overflow=mobileMenu.classList.contains('open')?'hidden':'';
+});
+function closeMobile(){
+  hamburger.classList.remove('open');
+  mobileMenu.classList.remove('open');
+  document.body.style.overflow='';
+}
+</script>
+
+</body>
+</html>
